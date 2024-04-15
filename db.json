@@ -1,45 +1,45 @@
 {
   "employees": [
     {
-      "id": "EX5Z",
+      "id": "Y19X",
       "empName": "Luis Ricardo",
       "empFirstName": "cornejo",
       "empLastName": "correo",
       "empSystemAccess": true
     },
     {
-      "id": "qJjU",
+      "id": "lJJj",
       "empName": "victor",
       "empFirstName": "hernandez",
       "empLastName": "perez",
-      "empSystemAccess": true
+      "empSystemAccess": false
     },
     {
-      "id": "UsPH",
-      "empName": "Jennyfer Lizbeth",
+      "id": "928H",
+      "empName": "Alonso",
       "empFirstName": "Garcia ",
-      "empLastName": "Sanchez",
+      "empLastName": "Sandoval",
       "empSystemAccess": true
     }
   ],
   "users": [
     {
-      "id": "EX5Z",
+      "id": "Y19X",
       "usrEmail": "luis@gmail.com",
-      "usrName": "Luis Usuario",
+      "usrName": "Luis ",
       "usrPassword": "contraseña"
     },
     {
-      "usrName": "usuario2",
-      "usrEmail": "correo2@gmail.com",
-      "usrPassword": "cdvdcd",
-      "id": "qJjU"
+      "usrName": "",
+      "usrEmail": "",
+      "usrPassword": "",
+      "id": "lJJj"
     },
     {
-      "usrName": "JennyUser",
-      "usrEmail": "correo3@gmail.com",
-      "usrPassword": "xcdvdvfb",
-      "id": "UsPH"
+      "id": "928H",
+      "usrEmail": "alonso@gmail.com",
+      "usrName": "Alonso Uauario",
+      "usrPassword": "dvjdfvfdvf"
     }
   ],
   "areas": [
@@ -64,23 +64,13 @@
         "joaName": "Area 4",
         "joaAbbreviation": "A4"
       },
-      "id": "EX5Z"
+      "id": "Y19X"
     },
     {
-      "id": "qJjU"
+      "id": "lJJj"
     },
     {
-      "0": {
-        "id": 3,
-        "joaName": "Area 3",
-        "joaAbbreviation": "A3"
-      },
-      "1": {
-        "id": 4,
-        "joaName": "Area 4",
-        "joaAbbreviation": "A4"
-      },
-      "id": "UsPH"
+      "id": "928H"
     }
   ]
 }

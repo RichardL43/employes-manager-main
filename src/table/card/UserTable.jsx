@@ -1,18 +1,8 @@
-import {
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@mui/material";
+import {Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { AreasButton } from "../../button/AreasButton";
 import { EditButton } from "../../button/EditButton";
-import { useFetchUsers } from "../../hooks/useFetchUsers";
 
-      <EditButton/>
 export const UserTable = ({ employee, userId }) => {
   // ! /////////////////////////7
   const [user, setUser] = useState([]);
