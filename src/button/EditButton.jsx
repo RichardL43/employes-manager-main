@@ -98,7 +98,7 @@ export const EditButton = ({ employee }) => {
           <form onSubmit={globalSubmit}>
             <h2>Editar Empleado</h2>
             <div>
-              <label htmlFor="empName">Nombre</label>
+              {/* <label htmlFor="empName">Nombre</label> */}
               <input
                 type="text"
                 id="empName"
@@ -106,7 +106,7 @@ export const EditButton = ({ employee }) => {
                 value={formData.empName}
                 onChange={handleChange}
               />
-              <label htmlFor="empFirstName">Primer Apellido</label>
+              {/* <label htmlFor="empFirstName">Primer Apellido</label> */}
               <input
                 type="text"
                 id="empFirstName"
@@ -114,7 +114,7 @@ export const EditButton = ({ employee }) => {
                 value={formData.empFirstName}
                 onChange={handleChange}
               />
-              <label htmlFor="empLastName">Segundo Apellido</label>
+              {/* <label htmlFor="empLastName">Segundo Apellido</label> */}
               <input
                 type="text"
                 id="empLastName"
@@ -136,7 +136,7 @@ export const EditButton = ({ employee }) => {
             <span>SI</span>
             {checked ? (
               <div>
-                <label htmlFor="usrName">Nombre de Usuario:</label>
+                {/* <label htmlFor="usrName">Nombre de Usuario:</label> */}
                 <input
                   type="text"
                   id="usrName"
@@ -145,7 +145,7 @@ export const EditButton = ({ employee }) => {
                   onChange={onChangeUser}
                   placeholder="Nombre"
                 />
-                <label htmlFor="usrEmail">Correo:</label>
+                {/* <label htmlFor="usrEmail">Correo:</label> */}
                 <input
                   type="email"
                   id="usrEmail"
@@ -155,7 +155,7 @@ export const EditButton = ({ employee }) => {
                   placeholder="correo@google.com"
                   className="form-control"
                 />
-                <label htmlFor="usrPassword">Contraseña:</label>
+                {/* <label htmlFor="usrPassword">Contraseña:</label> */}
                 <input
                   type="password"
                   id="usrPassword"

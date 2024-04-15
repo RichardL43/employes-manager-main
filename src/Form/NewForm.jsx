@@ -114,8 +114,8 @@ export const NewForm = () => {
         <div className="divNewForm">
           <form onSubmit={globalSumbit}>
             <h2 id="modal-title">Agregar Empleado</h2>
-            <div>
-              <label htmlFor="empName">Nombre</label>
+            <div> 
+              {/* <label htmlFor="empName">Nombre</label> */}
               <input
                 type="text"
                 id="empName"
@@ -124,7 +124,7 @@ export const NewForm = () => {
                 onChange={onChangeEmployee}
                 placeholder="Nombre"
               />
-              <label htmlFor="empFirstName">Apellido Paterno</label>
+              {/* <label htmlFor="empFirstName">Apellido Paterno</label> */}
               <input
                 type="text"
                 id="empFirstName"
@@ -133,7 +133,7 @@ export const NewForm = () => {
                 onChange={onChangeEmployee}
                 placeholder="Primer Apellido"
               />
-              <label htmlFor="empLastName">Apellido Materno</label>
+              {/* <label htmlFor="empLastName">Apellido Materno</label> */}
               <input
                 type="text"
                 id="empLastName"
@@ -156,33 +156,33 @@ export const NewForm = () => {
             <span>SI</span>
             {checked ? (
               <div>
-                <label htmlFor="usrName">Nombre de Usuario:</label>
+                {/* <label htmlFor="usrName">Nombre de Usuario:</label> */}
                 <input
                   type="text"
                   id="usrName"
                   name="usrName"
                   value={user.usrName}
                   onChange={onChangeUser}
-                  placeholder="Nombre"
+                  placeholder="Nombre de Usuario"
                 />
-                <label htmlFor="usrEmail">Correo:</label>
+                {/* <label htmlFor="usrEmail">Correo:</label> */}
                 <input
                   type="email"
                   id="usrEmail"
                   name="usrEmail"
                   value={user.usrEmail}
                   onChange={onChangeUser}
-                  placeholder="correo@google.com"
+                  placeholder="Email"
                   className="form-control"
                 />
-                <label htmlFor="usrPassword">Contraseña:</label>
+                {/* <label htmlFor="usrPassword">Contraseña:</label> */}
                 <input
                   type="password"
                   id="usrPassword"
                   name="usrPassword"
                   value={user.usrPassword}
                   onChange={onChangeUser}
-                  placeholder="-------"
+                  placeholder="Contraseña"
                   className="form-control"
                 />
               </div>

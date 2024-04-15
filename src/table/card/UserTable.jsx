@@ -46,15 +46,15 @@ export const UserTable = ({ employee, userId }) => {
           <TableHead></TableHead>
           <TableBody>
             <TableRow>
-              <TableCell sx={{ fontSize: "20px" }}>Nombre</TableCell>
+              <TableCell sx={{ fontSize: "15px" }}>Nombre</TableCell>
               <TableCell>{user.usrName}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell sx={{ fontSize: "20px" }}>Correo</TableCell>
+              <TableCell sx={{ fontSize: "15px" }}>Correo</TableCell>
               <TableCell>{user.usrEmail}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell sx={{ fontSize: "20px" }}>Áreas</TableCell>
+              <TableCell sx={{ fontSize: "15px" }}>Áreas</TableCell>
               <TableCell>{names.join(", ")}</TableCell>
             </TableRow>
           </TableBody>

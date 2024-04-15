@@ -1,6 +1,25 @@
 input[type=text], select {
 	width: 100%;
-	padding: 12px 20px;
+	padding: 5px 10px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+  }
+
+  input[type=password] {
+	width: 100%;
+	padding: 5px 10px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+  }
+  input[type=email] {
+	width: 100%;
+	padding: 5px 10px;
 	margin: 8px 0;
 	display: inline-block;
 	border: 1px solid #ccc;
@@ -18,9 +37,11 @@ h1 {
 	text-align: center;
 	font-weight: bold;
 }
-h3 {
+h2 {
 	text-align: center;
+	padding: 2px 2px; 
 }
+
 
 /* span {
 	display: flex;
@@ -60,9 +81,10 @@ h3 {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 400px; 
+	width: 300px; 
+	height: auto;
 	box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
-	padding: 25px;
+	padding: 20px;
 }
 
 .UserTable {
@@ -75,12 +97,30 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.tableCard {
-	width: 700px;
-	text-align: center;
+
+#tableCard {
+	background-color: #f2f2f2;
+	width: 500px;
+	/* height: 550px; */
+	/* padding-right: 20px; */
+	/* height: 300px; */
+	/* text-align: center; */
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.tableCard {
+	background-color: #f2f2f2;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px; 
+	height: auto;
+	box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+	padding: 20px;
+}
+
 
 .areasTable {
 	height: 400px;
@@ -99,7 +139,9 @@ height: auto;
 }
 
 .tableContainer {
-	padding: 30px;
+	padding: 20px;
+	/* padding-bottom: 200px; */
+
 	/* box-shadow: 10px 5px 5px #6eb9ff; */
 }
 
@@ -119,4 +161,5 @@ height: auto;
 	display: flex;
 	justify-content: space-between; /* Esto empujará el botón a la derecha */
 	align-items: center; /* Para alinear verticalmente si es necesario */
-  }
+}
+

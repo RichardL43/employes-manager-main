@@ -3,7 +3,6 @@ import { IconButton, Modal, Table, TableBody, TableCell, TableContainer, TableRo
 import { useState } from "react";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import { EditButton } from "./EditButton";
 
 export const AreasButton = ({ userId }) => {
   const [selectedRows, setSelectedRows] = useState([]);
