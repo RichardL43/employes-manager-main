@@ -1,0 +1,122 @@
+input[type=text], select {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+  }
+
+div {	  
+	border-radius: 10px;
+	/* background-color: #f2f2f2; */
+	/* padding: 20px; */
+}	
+	
+h1 {
+	text-align: center;
+	font-weight: bold;
+}
+h3 {
+	text-align: center;
+}
+
+/* span {
+	display: flex;
+	justify-content: end;
+} */
+
+/* form { 
+	border:solid #000;
+	background-color: aqua;
+	width: 400px; 
+	height: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+} */
+.modals {
+	position: absolute;
+	width: 400px;
+	/* background-color: white; */
+	border: 2px solid #000;
+	padding: 16px 32px 24px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%	);
+}
+.textField {
+	width: 100%;
+}
+.button {
+	text-align: center;
+}
+
+.divNewForm {
+	background-color: #f2f2f2;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px; 
+	box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+	padding: 25px;
+}
+
+.UserTable {
+	/* background-color: #6eb9ff; */
+	border:solid 2px #6eb9ff;
+border-radius:10px;
+
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+}
+
+.tableCard {
+	width: 700px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.areasTable {
+	height: 400px;
+	width: 100%;
+}
+
+.addEmployee {
+border:solid 2px #6eb9ff;
+padding:30px;
+border-radius:10px;
+/* flex-direction: column; */
+font-weight: bold;
+width: 500px;
+height: auto;
+
+}
+
+.tableContainer {
+	padding: 30px;
+	/* box-shadow: 10px 5px 5px #6eb9ff; */
+}
+
+.AreasButton {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	outline: none;
+}
+
+.buttonNewForm {
+	display: flex;
+	justify-content: space-between; /* Esto empujará el botón a la derecha */
+	align-items: center; /* Para alinear verticalmente si es necesario */
+  }
