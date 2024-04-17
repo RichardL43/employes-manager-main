@@ -11,7 +11,7 @@ export const UserTable = ({ employee, userId }) => {
 
 
   const getUser = () => {
-    fetch(`http://localhost:3005/users/${userId}`)
+    fetch(`http://localhost:3005/users/${Id}`)
       .then((resp) => resp.json())
       .then((data) => setUser(data));
   };
@@ -20,7 +20,7 @@ export const UserTable = ({ employee, userId }) => {
   const [areaName, setAreaName] = useState([]);
 
   const getArea = () => {
-    fetch(`http://localhost:3005/areas/${userId}`)
+    fetch(`http://localhost:3005/areas/${Id}`)
       .then((resp) => resp.json())
       .then((data) => {
         const areas = Object.values(data).map((item) => item);
@@ -36,8 +36,6 @@ export const UserTable = ({ employee, userId }) => {
   }, []);
 
   const names = areaName.map((name) => name.joaName);
-
-  // console.log(areaName);
 
   return (
     <>

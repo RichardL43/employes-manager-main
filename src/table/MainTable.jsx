@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -11,22 +11,20 @@ import { EditButton } from "../button/EditButton";
 import { NewForm } from "../Form/NewForm";
 import { useFetchGet } from "../hooks/useFetchGet";
 import { DeleteButton } from "../button/DeleteButton";
-
-export const EmployeeIdContext  = createContext();
+ 
+export const EmployeeIdContext = createContext();
 export const MainTable = () => {
-  const { employees} = useFetchGet();
-
-
+  const { employees } = useFetchGet();
+  
   return (
     <div className="tableContainer">
       <h1>Empleados</h1>
       <NewForm />
-      <EmployeeIdContext.Provider value={employees.map(employee => employee.id)}>
       <TableContainer component={Paper} sx={{ borderRadius: "10px" }}>
         <Table
           sx={{ minWidth: 650, borderRadius: "10px" }}
           aria-label="simple table"
-        >
+          >
           <TableHead>
             <TableRow>
               <TableCell
@@ -50,69 +48,70 @@ export const MainTable = () => {
               <TableCell
                 align="center"
                 sx={{ fontSize: "23px", border: "1px solid #708090" }}
-              >
+                >
                 Ver
               </TableCell>
               <TableCell
                 align="center"
                 sx={{ fontSize: "23px", border: "1px solid #708090" }}
-              >
+                >
                 Editar
               </TableCell>
               <TableCell
                 align="center"
                 sx={{ fontSize: "23px", border: "1px solid #708090" }}
-              >
+                >
                 Eliminar
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {employees.map((employee, index) => (
-              <TableRow key={index}>
-                <TableCell
-                  component="th"
-                  scope="row"
-                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                >
-                  {employee.empName}
-                </TableCell>
-                <TableCell
-                  align="center"
-                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                >
-                  {employee.empFirstName}
-                </TableCell>
-                <TableCell
-                  align="center"
-                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                >
-                  {employee.empLastName}
-                </TableCell>
-                <TableCell
-                  align="center"
-                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                >
-                  <ViewButton employee={employee} userId={employee.id} />
-                </TableCell>
-                <TableCell
-                  align="center"
-                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                >
-                  <EditButton employee={employee} />
-                </TableCell>
-                <TableCell
-                  align="center"
-                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                >
-                  <DeleteButton userId={employee.id} />
-                </TableCell>
-              </TableRow>
+              <EmployeeIdContext.Provider value={employee.id}>
+                <TableRow key={employee.id}>
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                    >
+                    {employee.empName}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                    >
+                    {employee.empFirstName}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                    >
+                    {employee.empLastName}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                    >
+                    <ViewButton employee={employee} userId={employee.id} />
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                  >
+                    <EditButton employee={employee} />
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                    >
+                    <DeleteButton userId={employee.id} />
+                  </TableCell>
+                </TableRow>
+              </EmployeeIdContext.Provider>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      </EmployeeIdContext.Provider>
     </div>
   );
 };

@@ -1,22 +1,13 @@
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
-import {
-  IconButton,
-  Modal,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableRow,
-  Paper,
-  Button,
-} from "@mui/material";
-import { useState } from "react";
+import {IconButton,Modal,Table,TableBody,TableCell,TableContainer,TableRow,Paper,Button,} from "@mui/material";
+import { useContext, useState } from "react";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import { EmployeeIdContext } from "../table/MainTable";
 
 export const AreasButton = ({ userId }) => {
   const [selectedRows, setSelectedRows] = useState([]);
-
+  const id = useContext(EmployeeIdContext)
   const tableData = [
     { id: 1, joaName: "Area 1", joaAbbreviation: "A1" },
     {
@@ -45,7 +36,7 @@ export const AreasButton = ({ userId }) => {
         ...area,
       };
     });
-    fetch(`http://localhost:3005/areas/${userId}`, {
+    fetch(`http://localhost:3005/areas/${id}`, {
       method: "PUT",
       body: JSON.stringify(selectedAreas),
     });
