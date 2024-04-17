@@ -46,6 +46,7 @@ h2 {
 }
 
 h3 {
+	/* background-color: red; */
 	text-align: center;
 	/* font-weight: bold; */
 }
@@ -96,26 +97,27 @@ h3 {
 	padding: 20px;
 }
 
-.UserTable {
+#UserTable {
 	/* background-color: #6eb9ff; */
-border:solid 2px #6eb9ff;
+/* border:solid 2px #6eb9ff; */
 border-radius:10px;
-text-align: center;
 margin-left: auto;
 margin-right: auto;
+width: 350px;
+/* ! */
+/* background-color: #f2f2f2; */
+/* position: absolute; */
+/* top: 50%; */
+/* left: 50%; */
+/* transform: translate(-50%, -50%); */
+height: auto;
+/* box-shadow: 0 0 24px rgba(0, 0, 0, 0.5); */
+padding: 20px;
+border-radius: 15px;
 }
 
 
-#tableCard {
-	background-color: #f2f2f2;
-	width: 500px;
-	/* height: 550px; */
-	/* padding-right: 20px; */
-	/* height: 300px; */
-	/* text-align: center; */
-	margin-left: auto;
-	margin-right: auto;
-}
+
 
 .tableCard {
 	background-color: #f2f2f2;
@@ -127,6 +129,7 @@ margin-right: auto;
 	height: auto;
 	box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
 	padding: 20px;
+	border-radius: 15px;
 }
 
 
@@ -173,3 +176,93 @@ height: auto;
 	align-items: center; /* Para alinear verticalmente si es necesario */
 }
 
+.rowSeparation {
+	/* background-color: #6eb9ff; */
+	height: 30px;
+	font-size: 35px;
+	padding-bottom: 1px;
+	padding-top: 1px;
+	/* padding: 100px; */
+}
+
+.buttonCell {
+	width: 1000px;
+	background-color: red;
+	/* display: flex; */
+	/* justify-content: space-between; */
+  }
+  
+  /* Estilos adicionales según sea necesario */
+  
+
+#tcName {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcEmpName {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcFirstName {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+#tcEmpFirstName {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcLastName {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcEmpLastName  {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcButtonArea {
+	/* background-color: red; */
+	padding-bottom: 1px;
+	padding-top: 1px;
+	width: 250px;
+}
+#tcButtonEdit {
+	/* background-color: blue; */
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcNameUser {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcUsrName {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcCorreoUser {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcUsrCorreo {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+#tcAreas {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+
+
+#tcUsrAreas {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}

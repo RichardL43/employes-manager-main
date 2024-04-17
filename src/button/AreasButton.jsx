@@ -1,5 +1,15 @@
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
-import { IconButton, Modal, Table, TableBody, TableCell, TableContainer, TableRow, Paper, Button } from "@mui/material";
+import {
+  IconButton,
+  Modal,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
+  Paper,
+  Button,
+} from "@mui/material";
 import { useState } from "react";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
@@ -8,23 +18,14 @@ export const AreasButton = ({ userId }) => {
   const [selectedRows, setSelectedRows] = useState([]);
 
   const tableData = [
-    { id: 1, 
-      joaName: "Area 1" ,
-      joaAbbreviation: "A1"
-    },
-    { 
-      id: 2, 
+    { id: 1, joaName: "Area 1", joaAbbreviation: "A1" },
+    {
+      id: 2,
       joaName: "Area 2",
-      joaAbbreviation: "A2"
+      joaAbbreviation: "A2",
     },
-    { id: 3, 
-      joaName: "Area 3",
-      joaAbbreviation: "A3"
-    },
-    { id: 4,
-      joaName: "Area 4",
-      joaAbbreviation: "A4"
-    },
+    { id: 3, joaName: "Area 3", joaAbbreviation: "A3" },
+    { id: 4, joaName: "Area 4", joaAbbreviation: "A4" },
   ];
 
   const handleRowSelect = (rowId) => {
@@ -45,8 +46,8 @@ export const AreasButton = ({ userId }) => {
       };
     });
     fetch(`http://localhost:3005/areas/${userId}`, {
-      method: 'PUT',
-      body: JSON.stringify(selectedAreas)
+      method: "PUT",
+      body: JSON.stringify(selectedAreas),
     });
 
     window.location.reload();
@@ -57,12 +58,11 @@ export const AreasButton = ({ userId }) => {
     setToggle(!toggle);
   };
 
-
   return (
     <>
       <IconButton onClick={handleToggle}>
-        <AccountTreeOutlinedIcon />
-      </IconButton>
+        <AccountTreeOutlinedIcon style={{ fontSize: "1.7rem", color: "black" }}/>
+      </IconButton >
       <Modal open={toggle} onClose={handleToggle}>
         <div className="AreasButton">
           <h2>Areas Asociadas</h2>
@@ -74,7 +74,11 @@ export const AreasButton = ({ userId }) => {
                     <TableCell>{row.joaName}</TableCell>
                     <TableCell>
                       <IconButton onClick={() => handleRowSelect(row.id)}>
-                        {isRowSelected(row.id) ? (<CheckBoxIcon />) : (<CheckBoxOutlineBlankIcon />)}
+                        {isRowSelected(row.id) ? (
+                          <CheckBoxIcon />
+                        ) : (
+                          <CheckBoxOutlineBlankIcon />
+                        )}
                       </IconButton>
                     </TableCell>
                   </TableRow>
@@ -82,8 +86,7 @@ export const AreasButton = ({ userId }) => {
               </TableBody>
             </Table>
           </TableContainer>
-          <div>
-          </div>
+          <div></div>
           <div>
             <Button onClick={handleToggle}>Cancelar</Button>
             <Button variant="contained" type="button" onClick={editArea}>

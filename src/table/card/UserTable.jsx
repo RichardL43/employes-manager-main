@@ -37,25 +37,25 @@ export const UserTable = ({ employee, userId }) => {
 
   return (
     <>
-      <TableContainer component={Paper}>
-        <Table className="UserTable">
+      <TableContainer id="UserTable" component={Paper}>
           <TableRow>
-            <TableCell><AreasButton userId={userId} /></TableCell>
-           <TableCell><EditButton employee={employee} /></TableCell> 
+            <TableCell id="tcButtonArea"><AreasButton userId={userId} /></TableCell>
+           <TableCell id="tcButtonEdit"><EditButton employee={employee} /></TableCell> 
           </TableRow>
           <h3>Usuario</h3>
+        <Table >
           <TableBody>
-            <TableRow>
-              <TableCell sx={{ fontSize: "15px" }}>Nombre</TableCell>
-              <TableCell>{user.usrName}</TableCell>
+            <TableRow className="rowSeparation" >
+              <TableCell  id="tcNameUser">Nombre</TableCell>
+              <TableCell  id="tcUsrName">{user.usrName}</TableCell>
             </TableRow>
-            <TableRow>
-              <TableCell sx={{ fontSize: "15px" }}>Correo</TableCell>
-              <TableCell>{user.usrEmail}</TableCell>
+            <TableRow className="rowSeparation">
+              <TableCell id="tcCorreoUser">Correo</TableCell>
+              <TableCell id="tcUsrCorreo">{user.usrEmail}</TableCell>
             </TableRow>
-            <TableRow>
-              <TableCell sx={{ fontSize: "15px" }}>Áreas</TableCell>
-              <TableCell>{names.join(", ")}</TableCell>
+            <TableRow className="rowSeparation">
+              <TableCell id="tcAreas" >Áreas</TableCell>
+              <TableCell id="tcUsrAreas">{names.join(", ")}</TableCell>
             </TableRow>
           </TableBody>
         </Table>

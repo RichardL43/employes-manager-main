@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import { Modal, Switch } from "@mui/material";
-import { UserAcces } from "../Form/UserAcces";
+import { IconButton, Modal, Switch } from "@mui/material";
 
 export const EditButton = ({ employee }) => {
   const [open, setOpen] = useState(false);
@@ -85,13 +84,9 @@ export const EditButton = ({ employee }) => {
 
   return (
     <>
-      <Button
-        startIcon={
-          <ModeEditIcon style={{ fontSize: "2rem", color: "black" }} />
-        }
-        style={{}}
-        onClick={handleOpen}
-      ></Button>
+      <IconButton onClick={handleOpen}> 
+      <ModeEditIcon style={{ fontSize: "2rem", color: "black" }} />
+      </IconButton>
 
       <Modal open={open} onClose={handleOpen}>
         <div className="divNewForm">
