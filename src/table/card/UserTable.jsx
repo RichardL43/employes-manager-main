@@ -38,11 +38,11 @@ export const UserTable = ({ employee, userId }) => {
   return (
     <>
       <TableContainer id="UserTable" component={Paper}>
-          <TableRow>
+          <TableRow className="rowSeparation" >
             <TableCell id="tcButtonArea"><AreasButton userId={userId} /></TableCell>
            <TableCell id="tcButtonEdit"><EditButton employee={employee} /></TableCell> 
           </TableRow>
-          <h3>Usuario</h3>
+          <h4>Usuario</h4>
         <Table >
           <TableBody>
             <TableRow className="rowSeparation" >

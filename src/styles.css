@@ -6,12 +6,13 @@ input {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
-    font-size: 1rem;
-    outline: none;
+	font-size: 1rem;
+	outline: none;	
+	/* background-color: red; */
 
-  }
+}
 
-  /* input[type=password] {
+/* input[type=password] {
 	width: 100%;
 	padding: 5px 10px;
 	margin: 8px 0;
@@ -30,24 +31,30 @@ input {
 	box-sizing: border-box;
   } */
 
-div {	  
+div {
 	border-radius: 10px;
 	/* background-color: #f2f2f2; */
 	/* padding: 20px; */
-}	
-	
+}
+
 h1 {
 	text-align: center;
 	font-weight: bold;
 }
+
 h2 {
 	text-align: center;
-	padding: 2px 2px; 
+	padding: 2px 2px;
 }
 
 h3 {
+	text-align: center;
+}
+
+h4 {
 	/* background-color: red; */
 	text-align: center;
+	padding: 8px 0;
 	/* font-weight: bold; */
 }
 
@@ -75,23 +82,25 @@ h3 {
 	padding: 16px 32px 24px;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%,-50%	);
+	transform: translate(-50%, -50%);
 }
+
 .textField {
 	width: 100%;
 }
+
 .button {
 	text-align: center;
 }
 
 .divNewForm {
-	/* border:solid 4px #6eb9ff; */
+	border:solid 2px #708090;
 	background-color: #f2f2f2;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 300px; 
+	width: 300px;
 	height: auto;
 	box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
 	padding: 20px;
@@ -99,21 +108,21 @@ h3 {
 
 #UserTable {
 	/* background-color: #6eb9ff; */
-/* border:solid 2px #6eb9ff; */
-border-radius:10px;
-margin-left: auto;
-margin-right: auto;
-width: 350px;
-/* ! */
-/* background-color: #f2f2f2; */
-/* position: absolute; */
-/* top: 50%; */
-/* left: 50%; */
-/* transform: translate(-50%, -50%); */
-height: auto;
-/* box-shadow: 0 0 24px rgba(0, 0, 0, 0.5); */
-padding: 20px;
-border-radius: 15px;
+	border:solid 2px #708090;
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 350px;
+	/* ! */
+	/* background-color: #f2f2f2; */
+	/* position: absolute; */
+	/* top: 50%; */
+	/* left: 50%; */
+	/* transform: translate(-50%, -50%); */
+	height: auto;
+	/* box-shadow: 0 0 24px rgba(0, 0, 0, 0.5); */
+	padding: 20px;
+	border-radius: 15px;
 }
 
 
@@ -125,7 +134,7 @@ border-radius: 15px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 400px; 
+	width: 400px;
 	height: auto;
 	box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
 	padding: 20px;
@@ -140,13 +149,13 @@ border-radius: 15px;
 
 .addEmployee {
 	background-color: #f2f2f2;
-border:solid 2px #6eb9ff;
-padding:30px;
-border-radius:10px;
-/* flex-direction: column; */
-font-weight: bold;
-width: 500px;
-height: auto;
+	border: solid 2px #6eb9ff;
+	padding: 30px;
+	border-radius: 10px;
+	/* flex-direction: column; */
+	font-weight: bold;
+	width: 500px;
+	height: auto;
 
 }
 
@@ -161,7 +170,7 @@ height: auto;
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%,-50%);
+	transform: translate(-50%, -50%);
 	background-color: white;
 	padding: 20px;
 	border-radius: 10px;
@@ -172,14 +181,13 @@ height: auto;
 
 .buttonNewForm {
 	display: flex;
-	justify-content: space-between; /* Esto empujará el botón a la derecha */
-	align-items: center; /* Para alinear verticalmente si es necesario */
+	justify-content: space-between;
+	align-items: center;
 }
 
 .rowSeparation {
 	/* background-color: #6eb9ff; */
-	height: 30px;
-	font-size: 35px;
+	height: 35px;
 	padding-bottom: 1px;
 	padding-top: 1px;
 	/* padding: 100px; */
@@ -190,38 +198,42 @@ height: auto;
 	background-color: red;
 	/* display: flex; */
 	/* justify-content: space-between; */
-  }
-  
-  /* Estilos adicionales según sea necesario */
-  
+}
 
 #tcName {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
 #tcEmpName {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
 #tcFirstName {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
+
 #tcEmpFirstName {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
 #tcLastName {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
-#tcEmpLastName  {
+#tcEmpLastName {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
 #tcButtonArea {
@@ -229,40 +241,49 @@ height: auto;
 	padding-bottom: 1px;
 	padding-top: 1px;
 	width: 250px;
+	/* border-bottom: none; */
 }
+
 #tcButtonEdit {
 	/* background-color: blue; */
 	padding-bottom: 1px;
 	padding-top: 1px;
+	/* border-bottom: none; */
 }
 
 #tcNameUser {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
 #tcUsrName {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
 #tcCorreoUser {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
 #tcUsrCorreo {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
 #tcAreas {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }
 
 
 #tcUsrAreas {
 	padding-bottom: 1px;
 	padding-top: 1px;
+	border-bottom: none;
 }

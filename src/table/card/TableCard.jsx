@@ -14,11 +14,11 @@ export const TableCard = ({ employee, userId }) => {
     
     <div className="tableCard">
       <TableContainer component={Paper} style={{ marginBottom: '20px' }}>
-        <h3>Detalle del Empleado</h3>
+        <h4>Detalle del Empleado</h4>
         <Table>
           <TableBody>
             <TableRow className="rowSeparation">
-              <TableCell id="tcName">Nombre</TableCell>
+              <TableCell  id="tcName">Nombre</TableCell>
               <TableCell id="tcEmpName">{employee.empName}</TableCell>
             </TableRow>
             <TableRow className="rowSeparation">

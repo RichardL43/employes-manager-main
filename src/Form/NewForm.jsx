@@ -80,16 +80,11 @@ export const NewForm = () => {
     windowReload();
   };
   //! ////////////// ////////////////
-  // const { handleChange, handleSubmit, formData } = useAddEmployee();
   const [open, setOpen] = useState(false);
   const [checked, setChecked] = useState(false);
 
   const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
+    setOpen(!open);
   };
 
   const handleSwitch = () => {
@@ -101,21 +96,19 @@ export const NewForm = () => {
     window.location.reload();
   };
 
-
   return (
     <div>
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <Button variant="contained" onClick={handleOpen}>
+      <div style={{display: "flex",justifyContent: "flex-end",paddingBottom: "10px",}}>
+        <button className="btn btn-outline-primary" onClick={handleOpen}>
           Agregar
-        </Button>
+        </button>
       </div>
 
-      <Modal open={open} onClose={handleClose}>
+      <Modal open={open} onClose={handleOpen}>
         <div className="divNewForm">
           <form onSubmit={globalSumbit}>
-            <h2 id="modal-title">Agregar Empleado</h2>
-            <div> 
-              {/* <label htmlFor="empName">Nombre</label> */}
+            <h3 id="modal-title">Agregar Empleado</h3>
+            <div>
               <input
                 type="text"
                 id="empName"
@@ -124,7 +117,6 @@ export const NewForm = () => {
                 onChange={onChangeEmployee}
                 placeholder="Nombre"
               />
-              {/* <label htmlFor="empFirstName">Apellido Paterno</label> */}
               <input
                 type="text"
                 id="empFirstName"
@@ -133,7 +125,6 @@ export const NewForm = () => {
                 onChange={onChangeEmployee}
                 placeholder="Primer Apellido"
               />
-              {/* <label htmlFor="empLastName">Apellido Materno</label> */}
               <input
                 type="text"
                 id="empLastName"
@@ -154,9 +145,8 @@ export const NewForm = () => {
               inputProps={{ "aria-label": "controlled" }}
             />
             <span>SI</span>
-            {checked ? (
+            {checked && (
               <div>
-                {/* <label htmlFor="usrName">Nombre de Usuario:</label> */}
                 <input
                   type="text"
                   id="usrName"
@@ -165,7 +155,6 @@ export const NewForm = () => {
                   onChange={onChangeUser}
                   placeholder="Nombre de Usuario"
                 />
-                {/* <label htmlFor="usrEmail">Correo:</label> */}
                 <input
                   type="email"
                   id="usrEmail"
@@ -173,9 +162,7 @@ export const NewForm = () => {
                   value={user.usrEmail}
                   onChange={onChangeUser}
                   placeholder="Email"
-                  className="form-control"
                 />
-                {/* <label htmlFor="usrPassword">Contraseña:</label> */}
                 <input
                   type="password"
                   id="usrPassword"
@@ -183,13 +170,12 @@ export const NewForm = () => {
                   value={user.usrPassword}
                   onChange={onChangeUser}
                   placeholder="Contraseña"
-                  className="form-control"
                 />
               </div>
-            ) : null}
+            )}
 
             <div>
-              <Button onClick={handleClose}>Cancelar</Button>
+              <Button onClick={handleOpen}>Cancelar</Button>
               <Button variant="contained" type="submit">
                 Guardar
               </Button>

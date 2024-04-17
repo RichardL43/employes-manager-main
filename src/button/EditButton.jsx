@@ -91,7 +91,7 @@ export const EditButton = ({ employee }) => {
       <Modal open={open} onClose={handleOpen}>
         <div className="divNewForm">
           <form onSubmit={globalSubmit}>
-            <h2>Editar Empleado</h2>
+            <h4>Editar Empleado</h4>
             <div>
               {/* <label htmlFor="empName">Nombre</label> */}
               <input
@@ -147,8 +147,6 @@ export const EditButton = ({ employee }) => {
                   name="usrEmail"
                   value={formUser.usrEmail}
                   onChange={onChangeUser}
-                  placeholder="correo@google.com"
-                  className="form-control"
                 />
                 {/* <label htmlFor="usrPassword">Contraseña:</label> */}
                 <input
@@ -157,8 +155,6 @@ export const EditButton = ({ employee }) => {
                   name="usrPassword"
                   value={formUser.usrPassword}
                   onChange={onChangeUser}
-                  placeholder="-------"
-                  className="form-control"
                 />
               </div>
             ) : null}
