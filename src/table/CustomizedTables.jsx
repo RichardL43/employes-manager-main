@@ -10,6 +10,7 @@ import { ViewButton } from "../button/ViewButton";
 import { EditButton } from "../button/EditButton";
 import { NewForm } from "../Form/NewForm";
 import { useFetchJSON } from "../hooks/useFetchJSON";
+import { UserForm } from "../Form/userForm";
 
 export const CustomizedTables = () => {
   const { employees } = useFetchJSON();
@@ -17,13 +18,13 @@ export const CustomizedTables = () => {
   return (
     <div className="tableContainer">
       <h1>Empleados</h1>
-      {/* <UserButton/> */} 
+      {/* <UserForm/>  */}
       <NewForm />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center" sx={{ fontSize: "20px" }}>
+              <TableCell align="center"  sx={{ fontSize: "20px" }}>
                 Nombre
               </TableCell>
               <TableCell align="center" sx={{ fontSize: "20px" }}>

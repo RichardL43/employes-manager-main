@@ -31,19 +31,19 @@ export const UserTable = ({ employee, userId }) => {
     getArea();
   }, []);
 
-  const names = areaName.map(name => name.joaName);
+  const names = areaName.map((name) => name.joaName);
 
   console.log(areaName);
 
   return (
     <>
       <TableContainer component={Paper}>
-        <AreasButton userId={userId} />
-      <EditButton employee={employee}/>
-
-        <h3>Usuario</h3>
         <Table className="UserTable">
-          <TableHead></TableHead>
+          <TableRow>
+            <TableCell><AreasButton userId={userId} /></TableCell>
+           <TableCell><EditButton employee={employee} /></TableCell> 
+          </TableRow>
+          <h3>Usuario</h3>
           <TableBody>
             <TableRow>
               <TableCell sx={{ fontSize: "15px" }}>Nombre</TableCell>

@@ -1,4 +1,4 @@
-input[type=text], select {
+input {
 	width: 100%;
 	padding: 5px 10px;
 	margin: 8px 0;
@@ -6,9 +6,12 @@ input[type=text], select {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
+    font-size: 1rem;
+    outline: none;
+
   }
 
-  input[type=password] {
+  /* input[type=password] {
 	width: 100%;
 	padding: 5px 10px;
 	margin: 8px 0;
@@ -25,7 +28,7 @@ input[type=text], select {
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-sizing: border-box;
-  }
+  } */
 
 div {	  
 	border-radius: 10px;
@@ -40,6 +43,11 @@ h1 {
 h2 {
 	text-align: center;
 	padding: 2px 2px; 
+}
+
+h3 {
+	text-align: center;
+	/* font-weight: bold; */
 }
 
 
@@ -76,6 +84,7 @@ h2 {
 }
 
 .divNewForm {
+	/* border:solid 4px #6eb9ff; */
 	background-color: #f2f2f2;
 	position: absolute;
 	top: 50%;
@@ -89,9 +98,8 @@ h2 {
 
 .UserTable {
 	/* background-color: #6eb9ff; */
-	border:solid 2px #6eb9ff;
+border:solid 2px #6eb9ff;
 border-radius:10px;
-
 text-align: center;
 margin-left: auto;
 margin-right: auto;
@@ -115,7 +123,7 @@ margin-right: auto;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 300px; 
+	width: 400px; 
 	height: auto;
 	box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
 	padding: 20px;
@@ -128,6 +136,7 @@ margin-right: auto;
 }
 
 .addEmployee {
+	background-color: #f2f2f2;
 border:solid 2px #6eb9ff;
 padding:30px;
 border-radius:10px;
@@ -155,6 +164,7 @@ height: auto;
 	border-radius: 10px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	outline: none;
+	/* width: 500px; */
 }
 
 .buttonNewForm {

@@ -19,9 +19,9 @@ export const ViewButton = ({ employee, userId }) => {
         <VisibilityIcon style={{ fontSize: "2rem" }} />
       </IconButton>
       <Modal style={{  paddingTop: '20px', paddingBottom: '2opx' }} open={open} onClose={handleOpen}>
-        {/* <Box id="tableCard"> */}
+        <Box>
           <TableCard employee={employee} userId={userId} />
-        {/* </Box> */}
+        </Box>
       </Modal>
     </>
   );
