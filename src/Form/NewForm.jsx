@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal, Switch } from "@mui/material";
-import { UserAcces } from "./UserAcces";
+// import { UserAcces } from "./UserAcces";
 import { useAddEmployee } from "../hooks/useAddEmployee";
 
 export const NewForm = () => {
@@ -157,6 +157,7 @@ export const NewForm = () => {
                 />
                 <input
                   type="email"
+                  autoComplete="email"
                   id="usrEmail"
                   name="usrEmail"
                   value={user.usrEmail}
@@ -165,6 +166,7 @@ export const NewForm = () => {
                 />
                 <input
                   type="password"
+                  autoComplete="current-password"
                   id="usrPassword"
                   name="usrPassword"
                   value={user.usrPassword}

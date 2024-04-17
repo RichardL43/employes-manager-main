@@ -61,21 +61,12 @@ export const EditButton = ({ employee }) => {
   const handleCheck = () => {
     setChecked((prevChecked) => !prevChecked);
     handleChange({ target: { name: "empSystemAccess", value: !checked } });
-
-    if (!checked) {
-      setFormUser({
-        usrName: "",
-        usrEmail: "",
-        usrPassword: "",
-      });
-    }
   };
 
   const getUser = () => {
     fetch(`http://localhost:3005/users/${employee.id}`)
       .then((resp) => resp.json())
       .then((data) => setFormUser(data))
-      .catch((error) => console.error("Error fetching user:", error));
   };
 
   useEffect(() => {
@@ -93,29 +84,29 @@ export const EditButton = ({ employee }) => {
           <form onSubmit={globalSubmit}>
             <h4>Editar Empleado</h4>
             <div>
-              {/* <label htmlFor="empName">Nombre</label> */}
               <input
                 type="text"
                 id="empName"
                 name="empName"
                 value={formData.empName}
                 onChange={handleChange}
+                placeholder="Nombre"
               />
-              {/* <label htmlFor="empFirstName">Primer Apellido</label> */}
               <input
                 type="text"
                 id="empFirstName"
                 name="empFirstName"
                 value={formData.empFirstName}
                 onChange={handleChange}
+                placeholder="Apellido Paterno"
               />
-              {/* <label htmlFor="empLastName">Segundo Apellido</label> */}
               <input
                 type="text"
                 id="empLastName"
                 name="empLastName"
                 value={formData.empLastName}
                 onChange={handleChange}
+                placeholder="Apellido Materno"
               />
             </div>
             <label htmlFor="Switch" className="form-label mb-0">
@@ -129,9 +120,8 @@ export const EditButton = ({ employee }) => {
               inputProps={{ "aria-label": "controlled" }}
             />
             <span>SI</span>
-            {checked ? (
+            {checked && (
               <div>
-                {/* <label htmlFor="usrName">Nombre de Usuario:</label> */}
                 <input
                   type="text"
                   id="usrName"
@@ -140,24 +130,24 @@ export const EditButton = ({ employee }) => {
                   onChange={onChangeUser}
                   placeholder="Nombre"
                 />
-                {/* <label htmlFor="usrEmail">Correo:</label> */}
                 <input
                   type="email"
                   id="usrEmail"
                   name="usrEmail"
                   value={formUser.usrEmail}
                   onChange={onChangeUser}
+                  placeholder="Email"
                 />
-                {/* <label htmlFor="usrPassword">Contraseña:</label> */}
                 <input
                   type="password"
                   id="usrPassword"
                   name="usrPassword"
                   value={formUser.usrPassword}
                   onChange={onChangeUser}
+                  placeholder="Contraseña"
                 />
               </div>
-            ) : null}
+            )}
             <div>
               <Button onClick={handleOpen}>Cancelar</Button>
               <Button variant="contained" type="submit">

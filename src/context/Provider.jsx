@@ -1,22 +1,16 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
 
-const RandomIdContext = createContext();
+// Creamos el contexto
+const EmployeeContext = createContext();
 
-export const RandomIdProvider = ({ children }) => {
-  // const [randomId, setRandomId] = useState("");
-
-  // const generateRandomId = () => {
-  //   const generatedId = Math.random().toString(36).substring(7);
-  //   setRandomId(generatedId);
-  // };
-  const randomId = 1;
-  return (  
-    <RandomIdContext.Provider value={{ randomId }}>
+// Creamos un proveedor personalizado que envuelva a los componentes donde queremos que esté disponible el contexto
+export const IdContext = ({ children, value }) => {
+  return (
+    <EmployeeContext.Provider value={value}>
       {children}
-    </RandomIdContext.Provider>
+    </EmployeeContext.Provider>
   );
 };
 
-export const useRandomId = () => {
-  return useContext(RandomIdContext);
-};
+// Creamos un hook personalizado para acceder al contexto
+export const useEmployeeContext = () => useContext(EmployeeContext);

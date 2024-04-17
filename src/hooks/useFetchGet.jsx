@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useFetchJSON = () => {
+export const useFetchGet = () => {
   const [employees, setEmployees] = useState([]);
   const [users, setUsers] = useState([]);
 

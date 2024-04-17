@@ -1,11 +1,14 @@
 import {Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,} from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AreasButton } from "../../button/AreasButton";
 import { EditButton } from "../../button/EditButton";
+import { EmployeeIdContext } from "../MainTable";
 
 export const UserTable = ({ employee, userId }) => {
   // ! /////////////////////////7
   const [user, setUser] = useState([]);
+  const Id = useContext(EmployeeIdContext);
+
 
   const getUser = () => {
     fetch(`http://localhost:3005/users/${userId}`)
@@ -29,11 +32,12 @@ export const UserTable = ({ employee, userId }) => {
   useEffect(() => {
     getUser();
     getArea();
+    console.log(Id)
   }, []);
 
   const names = areaName.map((name) => name.joaName);
 
-  console.log(areaName);
+  // console.log(areaName);
 
   return (
     <>

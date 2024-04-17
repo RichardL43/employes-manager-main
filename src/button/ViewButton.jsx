@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import { useButtonHook } from "../hooks/useButtonHook";
 import { Modal, Box } from "@mui/material";
-import { CardEmployee } from "../table/card/Card";
 import { TableCard } from "../table/card/TableCard";
 
 export const ViewButton = ({ employee, userId }) => {
   const [open, setOpen] = useState(false);
+  
 
   const handleOpen = () => {
     setOpen(!open);

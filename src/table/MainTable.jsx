@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -9,16 +9,19 @@ import Paper from "@mui/material/Paper";
 import { ViewButton } from "../button/ViewButton";
 import { EditButton } from "../button/EditButton";
 import { NewForm } from "../Form/NewForm";
-import { useFetchJSON } from "../hooks/useFetchJSON";
+import { useFetchGet } from "../hooks/useFetchGet";
 import { DeleteButton } from "../button/DeleteButton";
 
+export const EmployeeIdContext  = createContext();
 export const MainTable = () => {
-  const { employees } = useFetchJSON();
+  const { employees} = useFetchGet();
+
 
   return (
     <div className="tableContainer">
       <h1>Empleados</h1>
       <NewForm />
+      <EmployeeIdContext.Provider value={employees.map(employee => employee.id)}>
       <TableContainer component={Paper} sx={{ borderRadius: "10px" }}>
         <Table
           sx={{ minWidth: 650, borderRadius: "10px" }}
@@ -109,6 +112,7 @@ export const MainTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      </EmployeeIdContext.Provider>
     </div>
   );
 };
