@@ -67,8 +67,8 @@ export const MainTable = () => {
           </TableHead>
           <TableBody>
             {employees.map((employee, index) => (
-              <EmployeeIdContext.Provider value={employee.id}>
-                <TableRow key={employee.id}>
+              <EmployeeIdContext.Provider value={{ employee: employee, id: employee.id }}>
+                <TableRow key={index}>
                   <TableCell
                     component="th"
                     scope="row"

@@ -1,21 +1,21 @@
 {
   "employees": [
     {
-      "id": "uNzm",
+      "id": "rGsU",
       "empName": "Luis Ricardo",
       "empFirstName": "cornejo",
       "empLastName": "correo",
       "empSystemAccess": true
     },
     {
-      "id": "eqne",
+      "id": "WQZd",
       "empName": "victor",
       "empFirstName": "Garcia ",
       "empLastName": "perez",
       "empSystemAccess": false
     },
     {
-      "id": "ZMtk",
+      "id": "Jqj8",
       "empName": "marco",
       "empFirstName": "hernandez",
       "empLastName": "Sandoval",
@@ -24,22 +24,22 @@
   ],
   "users": [
     {
-      "id": "uNzm",
+      "id": "rGsU",
       "usrEmail": "luis@gmail.com",
-      "usrName": "Luis Usuario",
-      "usrPassword": "svdgkbdgb"
+      "usrName": "Luis ",
+      "usrPassword": "xscdscsc"
     },
     {
-      "id": "eqne",
+      "id": "WQZd",
       "usrEmail": "",
       "usrName": "",
       "usrPassword": ""
     },
     {
-      "id": "ZMtk",
-      "usrEmail": "marco@gmail.com",
-      "usrName": "marcoUser",
-      "usrPassword": "svroigjhepv"
+      "id": "Jqj8",
+      "usrEmail": "correo2@gmail.com",
+      "usrName": "usuario2",
+      "usrPassword": "ecvsthdfv"
     }
   ],
   "areas": [
@@ -49,13 +49,12 @@
         "joaName": "Area 1",
         "joaAbbreviation": "A1"
       },
-      "id": "uNzm"
-    },
-    {
-      "id": "eqne"
-    },
-    {
-      "id": "ZMtk"
+      "1": {
+        "id": 2,
+        "joaName": "Area 2",
+        "joaAbbreviation": "A2"
+      },
+      "id": "rGsU"
     }
   ]
 }

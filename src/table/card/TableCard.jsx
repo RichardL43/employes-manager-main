@@ -6,8 +6,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { UserTable } from "./UserTable";
-import { Card } from "@mui/material";
-import { color } from "@mui/system";
 
 export const TableCard = ({ employee, userId }) => {
   return (

@@ -3,39 +3,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { AreasButton } from "../../button/AreasButton";
 import { EditButton } from "../../button/EditButton";
 import { EmployeeIdContext } from "../MainTable";
+import { useFetchGet } from "../../hooks/useFetchGet";
 
 export const UserTable = ({ employee, userId }) => {
-  // ! /////////////////////////7
-  const [user, setUser] = useState([]);
-  const Id = useContext(EmployeeIdContext);
-
-
-  const getUser = () => {
-    fetch(`http://localhost:3005/users/${Id}`)
-      .then((resp) => resp.json())
-      .then((data) => setUser(data));
-  };
-  // ! /////////////////////////7
-
-  const [areaName, setAreaName] = useState([]);
-
-  const getArea = () => {
-    fetch(`http://localhost:3005/areas/${Id}`)
-      .then((resp) => resp.json())
-      .then((data) => {
-        const areas = Object.values(data).map((item) => item);
-        setAreaName(areas);
-      });
-  };
-  // ! /////////////////////////7
-
-  useEffect(() => {
-    getUser();
-    getArea();
-    console.log(Id)
-  }, []);
-
-  const names = areaName.map((name) => name.joaName);
+  const {user, area} = useFetchGet();
+  const names = Object.values(area).map(e => e.joaName);
 
   return (
     <>
