@@ -1,85 +1,24 @@
 import React, { useState } from "react";
 import { Button, Modal, Switch } from "@mui/material";
-// import { UserAcces } from "./UserAcces";
-// import { useAddEmployee } from "../hooks/useAddEmployee";
+import { useFetchPost } from "../hooks/useFetchPost";
 
 export const NewForm = () => {
-  const generateId = () => {
-    const lengthId = 4;
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let randomId = "";
-    for (let i = 0; i < lengthId; i++) {
-      const ind = Math.floor(Math.random() * characters.length);
-      randomId += characters.charAt(ind);
-    }
-    return randomId;
-  };
-  const randomId = generateId();
+  const {
+    onChangeEmployee,
+    employeeSubmit,
+    employee,
+    onChangeUser,
+    userSubmit,
+    user,
+    areaSubmit,
+  } = useFetchPost();
 
-  //! /////////////// ///////////////
-  const [employee, setEmployee] = useState({
-    id: randomId,
-    empName: "",
-    empFirstName: "",
-    empLastName: "",
-    empSystemAccess: false,
-  });
-
-  const onChangeEmployee = (e) => {
-    const { name, value } = e.target;
-    setEmployee((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const employeeSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:3005/employees", {
-      method: "POST",
-      body: JSON.stringify(employee),
-    }).then((resp) => resp.json());
-  };
-
-  //! /////////////// ///////////////
-  const [user, setUser] = useState({
-    id: randomId,
-    usrEmail: "",
-    usrName: "",
-    usrPassword: "",
-    // usrAreas: ["1","2","3","4"]
-  });
-
-  const onChangeUser = (e) => {
-    const { name, value } = e.target;
-    setUser((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const userSubmit = (e) => {
-    e.preventDefault();
-    fetch(`http://localhost:3005/users`, {
-      method: "POST",
-      body: JSON.stringify(user),
-    }).then((resp) => resp.json());
-  };
-  //! ////////////// ////////////////
-  const [area, setArea] = useState({
-    id: randomId,
-  });
-
-  const areaSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:3005/areas", {
-      method: "POST",
-      body: JSON.stringify(area),
-    }).then((resp) => resp.json());
-  };
-  //! ////////////// ////////////////
   const globalSumbit = (e) => {
     employeeSubmit(e);
     userSubmit(e);
     areaSubmit(e);
     windowReload();
   };
-  //! ////////////// ////////////////
   const [open, setOpen] = useState(false);
   const [checked, setChecked] = useState(false);
 
@@ -97,7 +36,7 @@ export const NewForm = () => {
   };
 
   return (
-    <div>
+    <>
       <div style={{display: "flex",justifyContent: "flex-end",paddingBottom: "10px",}}>
         <button className="btn btn-outline-primary" onClick={handleOpen}>
           Agregar
@@ -123,7 +62,7 @@ export const NewForm = () => {
                 name="empFirstName"
                 value={employee.empFirstName}
                 onChange={onChangeEmployee}
-                placeholder="Primer Apellido"
+                placeholder="Apellido Paterno"
               />
               <input
                 type="text"
@@ -131,7 +70,7 @@ export const NewForm = () => {
                 name="empLastName"
                 value={employee.empLastName}
                 onChange={onChangeEmployee}
-                placeholder="Segundo Apellido"
+                placeholder="Apellido Materno"
               />
             </div>
             <label htmlFor="Switch" className="form-label mb-0">
@@ -185,6 +124,6 @@ export const NewForm = () => {
           </form>
         </div>
       </Modal>
-    </div>
+    </>
   );
 };

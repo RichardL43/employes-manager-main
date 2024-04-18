@@ -23,7 +23,6 @@ export const MainTable = () => {
       <TableContainer component={Paper} sx={{ borderRadius: "10px" }}>
         <Table
           sx={{ minWidth: 650, borderRadius: "10px" }}
-          aria-label="simple table"
           >
           <TableHead>
             <TableRow>
@@ -66,9 +65,12 @@ export const MainTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {employees.map((employee, index) => (
-              <EmployeeIdContext.Provider value={{ employee: employee, id: employee.id }}>
-                <TableRow key={index}>
+            {employees.map((employee) => (
+              <EmployeeIdContext.Provider key={employee.id} value={{
+                 employee: employee, 
+                 id: employee.id,
+                 empSystemAccess: employee.empSystemAccess }}>
+                <TableRow >
                   <TableCell
                     component="th"
                     scope="row"

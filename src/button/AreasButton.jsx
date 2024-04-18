@@ -7,14 +7,11 @@ import { EmployeeIdContext } from "../table/MainTable";
 
 export const AreasButton = ({ userId }) => {
   const [selectedRows, setSelectedRows] = useState([]);
-  const id = useContext(EmployeeIdContext)
+  // const ID = useContext(EmployeeIdContext);
+  // const {id} = ID || {};
   const tableData = [
     { id: 1, joaName: "Area 1", joaAbbreviation: "A1" },
-    {
-      id: 2,
-      joaName: "Area 2",
-      joaAbbreviation: "A2",
-    },
+    { id: 2, joaName: "Area 2", joaAbbreviation: "A2",},
     { id: 3, joaName: "Area 3", joaAbbreviation: "A3" },
     { id: 4, joaName: "Area 4", joaAbbreviation: "A4" },
   ];
@@ -36,7 +33,7 @@ export const AreasButton = ({ userId }) => {
         ...area,
       };
     });
-    fetch(`http://localhost:3005/areas/${id}`, {
+    fetch(`http://localhost:3005/areas/${userId}`, {
       method: "PUT",
       body: JSON.stringify(selectedAreas),
     });

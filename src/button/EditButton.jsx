@@ -2,50 +2,20 @@ import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { IconButton, Modal, Switch } from "@mui/material";
+import { useFetchPut } from "../hooks/useFetchPut";
 
 export const EditButton = ({ employee }) => {
+  const {
+    handleChange,
+    submitEmployee,
+    formData,
+    onChangeUser,
+    submitUser,
+    formUser,
+    handleCheck,
+    checked,
+  } = useFetchPut();
   const [open, setOpen] = useState(false);
-  const [checked, setChecked] = useState(employee.empSystemAccess);
-  const [formData, setFormData] = useState(employee);
-  const [formUser, setFormUser] = useState({
-    usrName: "",
-    usrEmail: "",
-    usrPassword: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const onChangeUser = (e) => {
-    const { name, value } = e.target;
-    setFormUser((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const submitUser = (e) => {
-    e.preventDefault();
-    return fetch(`http://localhost:3005/users/${employee.id}`, {
-      method: "PUT",
-      body: JSON.stringify(formUser),
-    })
-      .then((resp) => resp.json())
-      .catch((error) => console.error("Error updating user:", error));
-  };
-
-  const submitEmployee = (e) => {
-    e.preventDefault();
-    fetch(`http://localhost:3005/employees/${employee.id}`, {
-      method: "PUT",
-      body: JSON.stringify(formData),
-    }).then((resp) => resp.json());
-  };
 
   const globalSubmit = (e) => {
     e.preventDefault();
@@ -58,25 +28,10 @@ export const EditButton = ({ employee }) => {
     setOpen(!open);
   };
 
-  const handleCheck = () => {
-    setChecked((prevChecked) => !prevChecked);
-    handleChange({ target: { name: "empSystemAccess", value: !checked } });
-  };
-
-  const getUser = () => {
-    fetch(`http://localhost:3005/users/${employee.id}`)
-      .then((resp) => resp.json())
-      .then((data) => setFormUser(data))
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
-
   return (
     <>
-      <IconButton onClick={handleOpen}> 
-      <ModeEditIcon style={{ fontSize: "2rem", color: "black" }} />
+      <IconButton onClick={handleOpen}>
+        <ModeEditIcon style={{ fontSize: "2rem", color: "black" }} />
       </IconButton>
 
       <Modal open={open} onClose={handleOpen}>
@@ -134,6 +89,7 @@ export const EditButton = ({ employee }) => {
                   type="email"
                   id="usrEmail"
                   name="usrEmail"
+                  autoComplete="username"
                   value={formUser.usrEmail}
                   onChange={onChangeUser}
                   placeholder="Email"
@@ -142,6 +98,7 @@ export const EditButton = ({ employee }) => {
                   type="password"
                   id="usrPassword"
                   name="usrPassword"
+                  autoComplete="current-password"
                   value={formUser.usrPassword}
                   onChange={onChangeUser}
                   placeholder="Contraseña"

@@ -15,6 +15,10 @@ export const useFetchGet = () => {
     setEmployees(employeesData);
  
     
+ 
+  };
+
+  const fetchDataId = async () => {
     const anEmployeeResponse = await fetch(`http://localhost:3005/employees/${id}`);
     const anEmployeeData = anEmployeeResponse.json();
     setAnEmployee(anEmployeeData);
@@ -26,11 +30,15 @@ export const useFetchGet = () => {
     const areasResponse = await fetch(`http://localhost:3005/areas/${id}`);
     const areaData = await areasResponse.json();
     setArea(areaData);
-  };
-
+  }
   useEffect(() => {
     fetchData();
-    // console.log(id)
+  }, []);
+
+  useEffect(() => {
+    if(id !== undefined) {
+      fetchDataId()
+    }
   }, []);
 
 
