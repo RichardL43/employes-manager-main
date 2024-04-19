@@ -6,8 +6,15 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { UserTable } from "./UserTable";
+import { useContext } from "react";
+import { EmployeeIdContext } from "../MainTable";
 
-export const TableCard = ({ employee, userId }) => {
+export const TableCard = () => {
+
+  const employeeContext = useContext(EmployeeIdContext);
+
+  const {employee} = employeeContext || {};
+
   return (
     
     <div className="tableCard">
@@ -34,7 +41,7 @@ export const TableCard = ({ employee, userId }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      {employee.empSystemAccess && <UserTable employee={employee} userId={userId} />}
+      {employee.empSystemAccess && <UserTable/>}
     </div>
       
   );

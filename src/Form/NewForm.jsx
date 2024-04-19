@@ -12,7 +12,7 @@ export const NewForm = () => {
     user,
     areaSubmit,
   } = useFetchPost();
-
+  
   const globalSumbit = (e) => {
     employeeSubmit(e);
     userSubmit(e);

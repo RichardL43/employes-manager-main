@@ -5,10 +5,13 @@ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import { EmployeeIdContext } from "../table/MainTable";
 
-export const AreasButton = ({ userId }) => {
+export const AreasButton = () => {
   const [selectedRows, setSelectedRows] = useState([]);
-  // const ID = useContext(EmployeeIdContext);
-  // const {id} = ID || {};
+
+  const idContext = useContext(EmployeeIdContext);
+  
+  const {id} = idContext || {};
+  
   const tableData = [
     { id: 1, joaName: "Area 1", joaAbbreviation: "A1" },
     { id: 2, joaName: "Area 2", joaAbbreviation: "A2",},
@@ -33,15 +36,17 @@ export const AreasButton = ({ userId }) => {
         ...area,
       };
     });
-    fetch(`http://localhost:3005/areas/${userId}`, {
+    fetch(`http://localhost:3005/areas/${id}`, {
       method: "PUT",
       body: JSON.stringify(selectedAreas),
     });
 
     window.location.reload();
   };
-
+  
+// !!!!!!!!!
   const [toggle, setToggle] = useState(false);
+
   const handleToggle = () => {
     setToggle(!toggle);
   };

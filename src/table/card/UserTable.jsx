@@ -1,11 +1,10 @@
 import {Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,} from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { AreasButton } from "../../button/AreasButton";
 import { EditButton } from "../../button/EditButton";
-import { EmployeeIdContext } from "../MainTable";
 import { useFetchGet } from "../../hooks/useFetchGet";
 
-export const UserTable = ({ employee, userId }) => {
+export const UserTable = () => {
   const { user, area } = useFetchGet();
   const names = Object.values(area).map((e) => e.joaName);
 
@@ -15,10 +14,10 @@ export const UserTable = ({ employee, userId }) => {
         <TableHead>
           <TableRow className="rowSeparation">
             <TableCell id="tcButtonArea">
-              <AreasButton userId={userId} />
+              <AreasButton/>
             </TableCell>
             <TableCell id="tcButtonEdit">
-              <EditButton employee={employee} />
+              <EditButton/>
             </TableCell>
           </TableRow>
           <TableRow className="rowSeparation">

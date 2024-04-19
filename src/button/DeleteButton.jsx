@@ -2,31 +2,15 @@ import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import {Button,Dialog,DialogActions,DialogTitle} from "@mui/material";
+import { useFetchDelete } from "../hooks/useFetchDelete";
 
-export const DeleteButton = ({ userId }) => {
+export const DeleteButton = () => {
   const [open, setOpen] = useState(false);
-
   const handleOpen = () => {
     setOpen(!open);
   };
-const deleteEmployee = () => {
-  fetch(`http://localhost:3005/employees/${userId}`, {
-    method: 'DELETE'
-  });
-};
 
-const deleteUser = () => {
-  fetch(`http://localhost:3005/users/${userId}`, {
-    method: 'DELETE'
-  });
-};
-
-const deleteArea = () => {
-  fetch(`http://localhost:3005/areas/${userId}`, {
-    method: 'DELETE'
-  });
-};
-
+const {deleteEmployee, deleteUser, deleteArea} = useFetchDelete();
 const globalDelete = (e) => {
   deleteEmployee(e);
   deleteUser(e);
@@ -46,8 +30,8 @@ const globalDelete = (e) => {
         </DialogTitle>
 
         <DialogActions style={{ justifyContent: "space-between" }}>
-          <Button color="primary" onClick={globalDelete}>si</Button>
-          <Button onClick={handleOpen} color="primary">no</Button>
+          <Button color="primary" onClick={globalDelete}>SI</Button>
+          <Button onClick={handleOpen} color="primary">NO</Button>
         </DialogActions>
       </Dialog>
     </>

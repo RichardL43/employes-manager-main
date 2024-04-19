@@ -4,7 +4,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import { Modal, Box } from "@mui/material";
 import { TableCard } from "../table/card/TableCard";
 
-export const ViewButton = ({ employee, userId }) => {
+export const ViewButton = () => {
   const [open, setOpen] = useState(false);
   
 
@@ -19,7 +19,7 @@ export const ViewButton = ({ employee, userId }) => {
       </IconButton>
       <Modal style={{  paddingTop: '20px', paddingBottom: '2opx' }} open={open} onClose={handleOpen}>
         <Box>
-          <TableCard employee={employee} userId={userId} />
+          <TableCard />
         </Box>
       </Modal>
     </>

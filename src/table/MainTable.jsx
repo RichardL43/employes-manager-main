@@ -15,6 +15,7 @@ import { DeleteButton } from "../button/DeleteButton";
 export const EmployeeIdContext = createContext();
 export const MainTable = () => {
   const { employees } = useFetchGet();
+// TODO reemplazar las props
   
   return (
     <div className="tableContainer">
@@ -94,19 +95,19 @@ export const MainTable = () => {
                     align="center"
                     sx={{ fontSize: "20px", border: "1px solid #708090" }}
                     >
-                    <ViewButton employee={employee} userId={employee.id} />
+                    <ViewButton/>
                   </TableCell>
                   <TableCell
                     align="center"
                     sx={{ fontSize: "20px", border: "1px solid #708090" }}
                   >
-                    <EditButton employee={employee} />
+                    <EditButton/>
                   </TableCell>
                   <TableCell
                     align="center"
                     sx={{ fontSize: "20px", border: "1px solid #708090" }}
                     >
-                    <DeleteButton userId={employee.id} />
+                    <DeleteButton/>
                   </TableCell>
                 </TableRow>
               </EmployeeIdContext.Provider>

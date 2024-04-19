@@ -4,7 +4,7 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { IconButton, Modal, Switch } from "@mui/material";
 import { useFetchPut } from "../hooks/useFetchPut";
 
-export const EditButton = ({ employee }) => {
+export const EditButton = () => {
   const {
     handleChange,
     submitEmployee,

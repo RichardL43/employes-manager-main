@@ -5,7 +5,7 @@ export const useFetchGet = () => {
   const [employees, setEmployees] = useState([]);
   const [user, setUsers] = useState([]);
   const [area, setArea] = useState([])
-  const [anEmployee, setAnEmployee] = useState();
+  // const [anEmployee, setAnEmployee] = useState();
   const contextId = useContext(EmployeeIdContext);
   const {id} = contextId || {};
 
@@ -19,9 +19,9 @@ export const useFetchGet = () => {
   };
 
   const fetchDataId = async () => {
-    const anEmployeeResponse = await fetch(`http://localhost:3005/employees/${id}`);
-    const anEmployeeData = anEmployeeResponse.json();
-    setAnEmployee(anEmployeeData);
+    // const anEmployeeResponse = await fetch(`http://localhost:3005/employees/${id}`);
+    // const anEmployeeData = anEmployeeResponse.json();
+    // setAnEmployee(anEmployeeData);
 
     const usersResponse = await fetch(`http://localhost:3005/users/${id}`);
     const usersData = await usersResponse.json();
@@ -42,5 +42,5 @@ export const useFetchGet = () => {
   }, []);
 
 
-  return { employees, user, area, anEmployee};
+  return { employees, user, area};
 };
