@@ -1,13 +1,15 @@
 import {Paper,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,} from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { AreasButton } from "../../button/AreasButton";
 import { EditButton } from "../../button/EditButton";
 import { useFetchGet } from "../../hooks/useFetchGet";
+import { EmployeeContext } from "../../context/EmployeeContext";
 
 export const UserTable = () => {
-  const { user, area } = useFetchGet();
+  // const { user, area } = useFetchGet();
+  const { user, area } = useContext(EmployeeContext);
+  // const {user, area } = state;
   const names = Object.values(area).map((e) => e.joaName);
-
   return (
     <TableContainer id="UserTable" component={Paper}>
       <Table>

@@ -1,8 +1,9 @@
 import React from "react";
 import { MainTable } from "./table/MainTable";
 
-export const App = () => {
+
+export const App = ({ onEmployeeIdChange }) => {
   return (
-      <MainTable/>
+      <MainTable onEmployeeIdChange={onEmployeeIdChange }/>
   );
 };

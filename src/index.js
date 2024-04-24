@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
-
-import './styles.css';
+import "./styles.css";
+import { EmployeeProvider } from "./context/EmployeeState";
+// import { EmployeeProvider } from "./hooks/useFetchGet";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <EmployeeProvider>
+      <App  />
+    </EmployeeProvider>
   </React.StrictMode>
 );
 

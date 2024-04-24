@@ -1,30 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import { EmployeeIdContext } from "../table/MainTable";
 
 export const useFetchPut = () => {
-    const employeeContext = useContext(EmployeeIdContext);
-    const {employee, id, empSystemAccess} = employeeContext || {};
+  const employeeContext = useContext(EmployeeIdContext);
+  const { employee, id, empSystemAccess } = employeeContext || {};
 
-// * Employee
-    const [formData, setFormData] = useState(employee);
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    };
-    
-    const submitEmployee = (e) => {
-      e.preventDefault();
-      fetch(`http://localhost:3005/employees/${id}`, {
-        method: "PUT",
-        body: JSON.stringify(formData),
-      }).then((resp) => resp.json());
-    };
+  // * Employee
+  const [formData, setFormData] = useState(employee);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-// * User
-const [formUser, setFormUser] = useState({
+  const submitEmployee = (e) => {
+    e.preventDefault();
+    axios.put(`http://localhost:3005/employees/${id}`, formData)
+      .then((resp) => resp.data)
+  };
+
+  // * User
+  const [formUser, setFormUser] = useState({
     usrName: "",
     usrEmail: "",
     usrPassword: "",
@@ -40,24 +39,21 @@ const [formUser, setFormUser] = useState({
 
   const submitUser = (e) => {
     e.preventDefault();
-    return fetch(`http://localhost:3005/users/${id}`, {
-      method: "PUT",
-      body: JSON.stringify(formUser),
-    })
-      .then((resp) => resp.json())
-      .catch((error) => console.error("Error updating user:", error));
+    axios.put(`http://localhost:3005/users/${id}`, formUser)
+      .then((resp) => resp.data)
   };
-//* getUser
+
+  //* getUser
   const getUser = () => {
-    fetch(`http://localhost:3005/users/${id}`)
-      .then((resp) => resp.json())
-      .then((data) => setFormUser(data))
+    axios.get(`http://localhost:3005/users/${id}`)
+      .then((resp) => setFormUser(resp.data))
   };
+
   useEffect(() => {
     getUser();
   }, []);
 
-// *Checked
+  // *Checked
   const [checked, setChecked] = useState(empSystemAccess);
 
   const handleCheck = () => {
@@ -65,6 +61,5 @@ const [formUser, setFormUser] = useState({
     handleChange({ target: { name: "empSystemAccess", value: !checked } });
   };
 
-
-  return {handleChange, submitEmployee, formData, onChangeUser, submitUser, formUser, setFormUser, handleCheck, checked}
+  return { handleChange, submitEmployee, formData, onChangeUser, submitUser, formUser, setFormUser, handleCheck, checked };
 };

@@ -1,8 +1,9 @@
 import { useState } from "react";
+import axios from "axios";
 import { useRandomId } from "./useRandomId";
 
 export const useFetchPost = () => {
-  const {randomId} = useRandomId();
+  const { randomId } = useRandomId();
 
   // * Employee
   const [employee, setEmployee] = useState({
@@ -17,16 +18,14 @@ export const useFetchPost = () => {
     const { name, value } = e.target;
     setEmployee((prevData) => ({ ...prevData, [name]: value }));
   };
- 
+
   const employeeSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3005/employees", {
-      method: "POST",
-      body: JSON.stringify(employee),
-    }).then((resp) => resp.json());
+    axios.post("http://localhost:3005/employees", employee)
+      .then((resp) => resp.data)
   };
 
-// * User
+  // * User
   const [user, setUser] = useState({
     id: randomId,
     usrEmail: "",
@@ -41,23 +40,20 @@ export const useFetchPost = () => {
 
   const userSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3005/users`, {
-      method: "POST",
-      body: JSON.stringify(user),
-    }).then((resp) => resp.json());
+    axios.post("http://localhost:3005/users", user)
+      .then((resp) => resp.data)
   };
-  
+
   // * Area
   const [area, setArea] = useState({
     id: randomId,
   });
+
   const areaSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3005/areas", {
-      method: "POST",
-      body: JSON.stringify(area),
-    }).then((resp) => resp.json());
+    axios.post("http://localhost:3005/areas", area)
+      .then((resp) => resp.data)
   };
 
-  return { onChangeEmployee, employeeSubmit, employee, onChangeUser, userSubmit, user,areaSubmit , area};
+  return { onChangeEmployee, employeeSubmit, employee, onChangeUser, userSubmit, user, areaSubmit, area };
 };

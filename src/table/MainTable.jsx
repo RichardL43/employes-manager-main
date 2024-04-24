@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext, useEffect} from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -11,11 +11,13 @@ import { EditButton } from "../button/EditButton";
 import { NewForm } from "../Form/NewForm";
 import { useFetchGet } from "../hooks/useFetchGet";
 import { DeleteButton } from "../button/DeleteButton";
+import { EmployeeContext } from "../context/EmployeeContext";
  
 export const EmployeeIdContext = createContext();
 export const MainTable = () => {
-  const { employees } = useFetchGet();
-// TODO reemplazar las props
+  // const { employees } = useFetchGet();
+  const { employees,fetchDataId } = useContext(EmployeeContext);
+
   
   return (
     <div className="tableContainer">
@@ -95,7 +97,7 @@ export const MainTable = () => {
                     align="center"
                     sx={{ fontSize: "20px", border: "1px solid #708090" }}
                     >
-                    <ViewButton/>
+                    <ViewButton employee={employee}/>
                   </TableCell>
                   <TableCell
                     align="center"

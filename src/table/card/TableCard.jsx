@@ -8,13 +8,11 @@ import Paper from "@mui/material/Paper";
 import { UserTable } from "./UserTable";
 import { useContext } from "react";
 import { EmployeeIdContext } from "../MainTable";
+import { EmployeeContext } from "../../context/EmployeeContext";
 
-export const TableCard = () => {
-
-  const employeeContext = useContext(EmployeeIdContext);
-
-  const {employee} = employeeContext || {};
-
+export const TableCard = ({employee}) => {
+  const {fetchDataId} = useContext(EmployeeContext);
+  fetchDataId(employee.id)
   return (
     
     <div className="tableCard">
