@@ -11,8 +11,8 @@ import { EmployeeIdContext } from "../MainTable";
 import { EmployeeContext } from "../../context/EmployeeContext";
 
 export const TableCard = ({employee}) => {
-  const {fetchDataId} = useContext(EmployeeContext);
-  fetchDataId(employee.id)
+  const {fetchGetId} = useContext(EmployeeContext);
+  fetchGetId(employee.id)
   return (
     
     <div className="tableCard">

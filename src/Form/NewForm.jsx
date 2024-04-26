@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Modal, Switch } from "@mui/material";
 import { useFetchPost } from "../hooks/useFetchPost";
+import { EmployeeContext } from "../context/EmployeeContext";
 
 export const NewForm = () => {
-  const {
-    onChangeEmployee,
-    employeeSubmit,
-    employee,
-    onChangeUser,
-    userSubmit,
-    user,
-    areaSubmit,
-  } = useFetchPost();
-  
+  // const {
+  //   onChangeEmployee,
+  //   employeeSubmit,
+  //   employee,
+  //   onChangeUser,
+  //   userSubmit,
+  //   user,
+  //   areaSubmit,
+  // } = useFetchPost();
+  const {employeeSubmit, userSubmit, areaSubmit, onChangeEmployee, onChangeUser, employee,user} = useContext(EmployeeContext)
   const globalSumbit = (e) => {
     employeeSubmit(e);
     userSubmit(e);

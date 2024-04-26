@@ -20,6 +20,20 @@
       "empFirstName": "Garcia ",
       "empLastName": "perez",
       "empSystemAccess": true
+    },
+    {
+      "id": "Lun9",
+      "empName": "Emanuel ",
+      "empFirstName": "hernandez",
+      "empLastName": "Zapata",
+      "empSystemAccess": false
+    },
+    {
+      "id": "TDBY",
+      "empName": "Janeth",
+      "empFirstName": "cisneros",
+      "empLastName": "cedillo",
+      "empSystemAccess": true
     }
   ],
   "users": [
@@ -40,6 +54,18 @@
       "usrEmail": "correo2@gmail.com",
       "usrName": "usuario2",
       "usrPassword": "bfhhnjgmnj"
+    },
+    {
+      "id": "Lun9",
+      "usrEmail": "",
+      "usrName": "",
+      "usrPassword": ""
+    },
+    {
+      "id": "TDBY",
+      "usrEmail": "correo3@gmail.com",
+      "usrName": "usuario3",
+      "usrPassword": "dvsfgvfgbgh"
     }
   ],
   "areas": [
@@ -70,7 +96,28 @@
       "id": "b8If"
     },
     {
+      "0": {
+        "id": 2,
+        "joaName": "Area 2",
+        "joaAbbreviation": "A2"
+      },
+      "1": {
+        "id": 3,
+        "joaName": "Area 3",
+        "joaAbbreviation": "A3"
+      },
       "id": "7BZf"
+    },
+    {
+      "id": "Lun9"
+    },
+    {
+      "0": {
+        "id": 2,
+        "joaName": "Area 2",
+        "joaAbbreviation": "A2"
+      },
+      "id": "TDBY"
     }
   ]
 }

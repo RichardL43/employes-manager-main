@@ -1,56 +1,49 @@
-// import React, { useReducer, useRef } from 'react'
-
-// const Pruebas = () => {
-
-//     const inputRef = useRef();
-//     const ADD_TASK = 'ADD_TASK'
-//     const REMOVE_TASK = 'REMOVE_TASK'
-//     const [tasks , dispatch] = useReducer((state = [] , action) => {
-//         switch (action.type) {
-//             case ADD_TASK: {
-//                 return [
-//                     ...state,
-//                     {
-//                         id: state.length,
-//                         title: action.title
-//                     }
-//                 ]
-//             }
-//             case REMOVE_TASK: {
-//                 return state.filter((task,index) => index !== action.index )             
-//             }
-//             default: {
-//                 return state;
-//             }
-//         }
-//     });
-
-//     const handleSubmit = (e) => {
-//         e.preventDefault();
-//         dispatch({
-//             type: ADD_TASK,
-//             title: inputRef.current.value
-//         });
+// export const EmployeeProvider = ({ children }) => {
+//     const [state, dispatch] = useReducer(reducer, initialState);
+//     const [id, setId] = useState(null);
+  
+//     const fetchGet = async () => {
+//       const employeesResponse = await axios.get("http://localhost:3005/employees");
+//       const employeesData = employeesResponse.data;
+//       dispatch({ type: SET_EMPLOYEES, payload: employeesData });
+//     };
+  
+//     const fetchGetId = async (id) => {
+//       try {
+//         const usersResponse = await axios.get(`http://localhost:3005/users/${id}`);
+//         const usersData = usersResponse.data;
+//         dispatch({ type: SET_USER, payload: usersData });
+  
+//         const areasResponse = await axios.get(`http://localhost:3005/areas/${id}`);
+//         const areaData = areasResponse.data;
+//         dispatch({ type: SET_AREA, payload: areaData });
+//       } catch (error) {
+//         console.error("Error fetching user or area:", error);
+//       }
+//     };
+  
+//     const fetchPut = async (endpoint, data) => {
+//       try {
+//         const response = await axios.put(endpoint, data);
+//         return response.data;
+//       } catch (error) {
+//         console.error("Error updating data:", error);
+//         throw error;
+//       }
+//     };
+  
+//     useEffect(() => {
+//       fetchGet();
+//       if (id !== null) {
+//         fetchGetId(id);
 //     }
-
-//   return (
-//     <div>
-//         <h1>Lista de Tareas</h1>
-//         <form onSubmit={handleSubmit}>
-//             <label>Tarea</label>
-//             <input type="text" name='title' ref={inputRef}/>
-//             <input type="submit" value="Enviar"/>
-//         </form>
-//         <div className='tasks'>
-//             {tasks && tasks.map((task, index) => (
-//                 <div className='task' key={index}>
-//                     <p>{task.title}</p>
-//                     <button onClick={() => dispatch({type: REMOVE_TASK, index })}>Borrar</button>
-//                 </div>
-//             ))}
-//         </div>
-//     </div>
-//   )
-// }
-
-// export default Pruebas
+// }, [id]);
+// console.log(id)
+  
+//     return (
+//       <EmployeeContext.Provider value={{ ...state, fetchGetId, fetchPut }}>
+//         {children}
+//       </EmployeeContext.Provider>
+//     );
+//   };
+  
