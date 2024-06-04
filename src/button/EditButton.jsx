@@ -1,29 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { IconButton, Modal, Switch } from "@mui/material";
 import { useFetchPut } from "../hooks/useFetchPut";
+import { EmployeeContext } from "../context/EmployeeContext";
 
-export const EditButton = () => {
-  const {
-    handleChange,
-    submitEmployee,
-    formData,
-    onChangeUser,
-    submitUser,
-    formUser,
-    handleCheck,
-    checked,
-  } = useFetchPut();
-  const [open, setOpen] = useState(false);
+export const EditButton = ({ employee }) => {
+  const {handleChange,formData,onChangeUser,formUser,handleCheck,checked,} = useFetchPut(employee);
+  const {submitUser, submitEmployee} = useContext(EmployeeContext);
 
   const globalSubmit = (e) => {
     e.preventDefault();
-    submitEmployee(e);
-    submitUser(e);
-    window.location.reload();
-  };
-
+    submitEmployee(employee.id, formData);
+    submitUser(employee.id, formUser);
+    handleOpen()
+  }; 
+  
+  const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(!open);
   };
@@ -111,7 +104,7 @@ export const EditButton = () => {
                 Guardar
               </Button>
             </div>
-          </form>
+          </form> 
         </div>
       </Modal>
     </>

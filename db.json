@@ -1,123 +1,89 @@
 {
   "employees": [
     {
-      "id": "iryi",
+      "id": "Bg73",
       "empName": "Luis Ricardo",
       "empFirstName": "cornejo",
       "empLastName": "correo",
       "empSystemAccess": true
     },
     {
-      "id": "b8If",
+      "id": "AVqM",
       "empName": "victor",
       "empFirstName": "hernandez",
       "empLastName": "Sandoval",
       "empSystemAccess": false
     },
     {
-      "id": "7BZf",
+      "id": "VkUA",
       "empName": "marco",
       "empFirstName": "Garcia ",
       "empLastName": "perez",
       "empSystemAccess": true
     },
     {
-      "id": "Lun9",
-      "empName": "Emanuel ",
-      "empFirstName": "hernandez",
-      "empLastName": "Zapata",
-      "empSystemAccess": false
-    },
-    {
-      "id": "TDBY",
-      "empName": "Janeth",
-      "empFirstName": "cisneros",
-      "empLastName": "cedillo",
+      "id": "ORqe",
+      "empName": "Jennyfer Lizbeth",
+      "empFirstName": "cornejo",
+      "empLastName": "correo",
       "empSystemAccess": true
     }
   ],
   "users": [
     {
-      "id": "iryi",
+      "id": "Bg73",
       "usrEmail": "luis@gmail.com",
       "usrName": "Luis Usuario",
-      "usrPassword": "sdsfgbfnhgm"
+      "usrPassword": "dsvfsv",
+      "usrAreas": [
+        "1",
+        "3"
+      ]
     },
     {
-      "id": "b8If",
+      "id": "AVqM",
       "usrEmail": "",
       "usrName": "",
-      "usrPassword": ""
+      "usrPassword": "",
+      "usrAreas": []
     },
     {
-      "id": "7BZf",
+      "id": "VkUA",
       "usrEmail": "correo2@gmail.com",
       "usrName": "usuario2",
-      "usrPassword": "bfhhnjgmnj"
+      "usrPassword": "jtyjujuk",
+      "usrAreas": []
     },
     {
-      "id": "Lun9",
-      "usrEmail": "",
-      "usrName": "",
-      "usrPassword": ""
-    },
-    {
-      "id": "TDBY",
-      "usrEmail": "correo3@gmail.com",
-      "usrName": "usuario3",
-      "usrPassword": "dvsfgvfgbgh"
+      "id": "ORqe",
+      "usrEmail": "jenny@gmail.com",
+      "usrName": "JennyUser",
+      "usrPassword": "rthytjhyj",
+      "usrAreas": [
+        "3"
+      ]
     }
   ],
   "areas": [
     {
-      "0": {
-        "id": 1,
-        "joaName": "Area 1",
-        "joaAbbreviation": "A1"
-      },
-      "1": {
-        "id": 2,
-        "joaName": "Area 2",
-        "joaAbbreviation": "A2"
-      },
-      "2": {
-        "id": 3,
-        "joaName": "Area 3",
-        "joaAbbreviation": "A3"
-      },
-      "3": {
-        "id": 4,
-        "joaName": "Area 4",
-        "joaAbbreviation": "A4"
-      },
-      "id": "iryi"
+      "id": "1",
+      "joaName": "Area 1",
+      "joaAbbreviation": "A1"
     },
     {
-      "id": "b8If"
+      "id": "2",
+      "joaName": "Area 2",
+      "joaAbbreviation": "A2"
     },
     {
-      "0": {
-        "id": 2,
-        "joaName": "Area 2",
-        "joaAbbreviation": "A2"
-      },
-      "1": {
-        "id": 3,
-        "joaName": "Area 3",
-        "joaAbbreviation": "A3"
-      },
-      "id": "7BZf"
+      "id": "3",
+      "joaName": "Area 3",
+      "joaAbbreviation": "A3"
     },
     {
-      "id": "Lun9"
-    },
-    {
-      "0": {
-        "id": 2,
-        "joaName": "Area 2",
-        "joaAbbreviation": "A2"
-      },
-      "id": "TDBY"
+      "id": "4",
+      "joaName": "Area 4",
+      "joaAbbreviation": "A4"
     }
   ]
 }

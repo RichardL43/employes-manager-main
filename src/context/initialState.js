@@ -1,7 +1,7 @@
-const initialState = (randomId) => ({
+export const initialState = (randomId) => ({
     employees: [],
-    user: [],
-    area: [],
+    userGet: [],
+    areaGet: [],
     employee: {
       id: randomId,
       empName: "",
@@ -15,9 +15,7 @@ const initialState = (randomId) => ({
       usrName: "",
       usrPassword: "",
     },
-    area: {
-      id: randomId,
-    }
+//     area: {
+//       id: randomId
+// }
 });
-
-export default initialState;

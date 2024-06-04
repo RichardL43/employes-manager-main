@@ -4,22 +4,17 @@ import { useFetchPost } from "../hooks/useFetchPost";
 import { EmployeeContext } from "../context/EmployeeContext";
 
 export const NewForm = () => {
-  // const {
-  //   onChangeEmployee,
-  //   employeeSubmit,
-  //   employee,
-  //   onChangeUser,
-  //   userSubmit,
-  //   user,
-  //   areaSubmit,
-  // } = useFetchPost();
-  const {employeeSubmit, userSubmit, areaSubmit, onChangeEmployee, onChangeUser, employee,user} = useContext(EmployeeContext)
-  const globalSumbit = (e) => {
-    employeeSubmit(e);
-    userSubmit(e);
-    areaSubmit(e);
-    windowReload();
+  const { onChangeEmployee, onChangeUser, employee, user } = useFetchPost();
+  const { employeeSubmitPost, userSubmitPost } = useContext(EmployeeContext);
+
+  const globalSubmit = async (e) => {
+    e.preventDefault();
+    await employeeSubmitPost(employee);
+    await userSubmitPost(user);
+    // setOpen(false);
+    window.location.reload();
   };
+
   const [open, setOpen] = useState(false);
   const [checked, setChecked] = useState(false);
 
@@ -32,13 +27,15 @@ export const NewForm = () => {
     onChangeEmployee({ target: { name: "empSystemAccess", value: !checked } });
   };
 
-  const windowReload = () => {
-    window.location.reload();
-  };
-
   return (
     <>
-      <div style={{display: "flex",justifyContent: "flex-end",paddingBottom: "10px",}}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          paddingBottom: "10px",
+        }}
+      >
         <button className="btn btn-outline-primary" onClick={handleOpen}>
           Agregar
         </button>
@@ -46,7 +43,7 @@ export const NewForm = () => {
 
       <Modal open={open} onClose={handleOpen}>
         <div className="divNewForm">
-          <form onSubmit={globalSumbit}>
+          <form onSubmit={globalSubmit}>
             <h3 id="modal-title">Agregar Empleado</h3>
             <div>
               <input

@@ -1,75 +1,70 @@
-// import { useReducer } from "react";
-// import axios from "axios";
-// import { useRandomId } from "./useRandomId";
+import { useState } from "react";
+import { useRandomId } from "./useRandomId";
+import axios from "axios";
 
-// const ACTIONS = {
-//  POST_EMPLOYEE: "POST_AREA",
-//  POST_USER: "POST_USER",
-//  POST_AREA: "POST_AREA"
-// };
+export const useFetchPost = () => {
+  const { randomId } = useRandomId();
 
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case ACTIONS.POST_EMPLOYEE:
-//       return { ...state, employee: action.payload };
-//     case ACTIONS.POST_USER:
-//       return { ...state, user: action.payload };
-//     case ACTIONS.POST_AREA:
-//       return { ...state, area: action.payload };
-//     default:
-//       return state;
-//   }
-// };
+  // * Employee
+  const [employee, setEmployee] = useState({
+    id: randomId,
+    empName: "",
+    empFirstName: "",
+    empLastName: "",
+    empSystemAccess: false,
+  });
 
-// export const useFetchPost = () => {
-//   const { randomId } = useRandomId();
+  const onChangeEmployee = (e) => {
+    const { name, value } = e.target;
+    setEmployee((prevData) => ({ ...prevData, [name]: value }));
+  };
 
-//   const [state, dispatch] = useReducer(reducer, {
-//     employee: {
-//       id: randomId,
-//       empName: "",
-//       empFirstName: "",
-//       empLastName: "",
-//       empSystemAccess: false,
-//     },
-//     user: {
-//       id: randomId,
-//       usrEmail: "",
-//       usrName: "",
-//       usrPassword: "",
-//     },
-//     area: {
-//       id: randomId,
-//     },
-//   });
+  const employeeSubmitPost = () => {
+    axios
+      .post("http://localhost:3005/employees", employee)
+      .then((resp) => resp.data);
+  };
 
-//   const onChangeEmployee = (e) => {
-//     const { name, value } = e.target;
-//     dispatch({ type: ACTIONS.POST_EMPLOYEE, payload: { ...state.employee, [name]: value } });
-//   };
+  // * User
+  const [user, setUser] = useState({
+    id: randomId,
+    usrEmail: "",
+    usrName: "",
+    usrPassword: "",
+    usrAreas: [],
+  });
 
-//   const onChangeUser = (e) => {
-//     const { name, value } = e.target;
-//     dispatch({ type: ACTIONS.POST_USER, payload: { ...state.user, [name]: value } });
-//   };
+  const onChangeUser = (e) => {
+    const { name, value } = e.target;
+    setUser((prevData) => ({ ...prevData, [name]: value }));
+  };
 
-//   const employeeSubmit = (e) => {
-//     e.preventDefault();
-//     axios.post("http://localhost:3005/employees", state.employee)
-//       .then((resp) => resp.data);
-//   };
+  const userSubmitPost = () => {
+    axios.post("http://localhost:3005/users", user).then((resp) => resp.data);
+  };
 
-//   const userSubmit = (e) => {
-//     e.preventDefault();
-//     axios.post("http://localhost:3005/users", state.user)
-//       .then((resp) => resp.data);
-//   };
+  // * Area
+  const areasTotales = [
+    { id: "1", joaName: "Area 1", joaAbbreviation: "A1" },
+    { id: "2", joaName: "Area 2", joaAbbreviation: "A2" },
+    { id: "3", joaName: "Area 3", joaAbbreviation: "A3" },
+    { id: "4", joaName: "Area 4", joaAbbreviation: "A4" },
+  ];
+  const [area, setArea] = useState(areasTotales);
 
-//   const areaSubmit = (e) => {
-//     e.preventDefault();
-//     axios.post("http://localhost:3005/areas", state.area)
-//       .then((resp) => resp.data);
-//   };
+  const areaSubmitPost = () => {
+    axios.post("http://localhost:3005/areas", area);
+    // .then((resp) => resp.data)
+  };
 
-//   return { onChangeEmployee, employeeSubmit, employee: state.employee, onChangeUser, userSubmit, user: state.user, areaSubmit, area: state.area };
-// };
+  return {
+    onChangeEmployee,
+    employeeSubmitPost,
+    employee,
+    onChangeUser,
+    userSubmitPost,
+    user,
+    areaSubmitPost,
+    area,
+  };
+};

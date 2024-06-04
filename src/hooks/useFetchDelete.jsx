@@ -2,10 +2,8 @@ import { useContext } from 'react';
 import axios from 'axios';
 import { EmployeeIdContext } from '../table/MainTable';
 
-export const useFetchDelete = () => {
-  const ID = useContext(EmployeeIdContext);
-  const { id } = ID || {};
- 
+export const useFetchDelete = (id) => {
+
   const deleteEmployee = () => {
     axios.delete(`http://localhost:3005/employees/${id}`)
   };

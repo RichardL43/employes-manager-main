@@ -1,23 +1,20 @@
 import AccountTreeOutlinedIcon from "@mui/icons-material/AccountTreeOutlined";
-import {IconButton,Modal,Table,TableBody,TableCell,TableContainer,TableRow,Paper,Button,} from "@mui/material";
-import { useContext, useState } from "react";
+import {IconButton,Modal,Table,TableBody,TableCell,TableContainer,TableRow,Paper,Button} from "@mui/material";
+import { useContext, useEffect, useState } from "react";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import { EmployeeIdContext } from "../table/MainTable";
+import axios from "axios";
 
-export const AreasButton = () => {
+export const AreasButton = ({ employee }) => {
   const [selectedRows, setSelectedRows] = useState([]);
-
-  const idContext = useContext(EmployeeIdContext);
-  
-  const {id} = idContext || {};
-  
   const tableData = [
-    { id: 1, joaName: "Area 1", joaAbbreviation: "A1" },
-    { id: 2, joaName: "Area 2", joaAbbreviation: "A2",},
-    { id: 3, joaName: "Area 3", joaAbbreviation: "A3" },
-    { id: 4, joaName: "Area 4", joaAbbreviation: "A4" },
+    { id: "1", joaName: "Area 1", joaAbbreviation: "A1" },
+    { id: "2", joaName: "Area 2", joaAbbreviation: "A2" },
+    { id: "3", joaName: "Area 3", joaAbbreviation: "A3" },
+    { id: "4", joaName: "Area 4", joaAbbreviation: "A4" },
   ];
+  
+  console.log(tableData);
 
   const handleRowSelect = (rowId) => {
     if (selectedRows.includes(rowId)) {
@@ -27,24 +24,20 @@ export const AreasButton = () => {
     }
   };
 
-  const isRowSelected = (rowSelected) => selectedRows.includes(rowSelected);
+  const isRowSelected = (rowId) => {
+    return selectedRows.includes(rowId);
+  };
 
   const editArea = () => {
     const selectedAreas = selectedRows.map((rowId) => {
       const area = tableData.find((row) => row.id === rowId);
-      return {
-        ...area,
-      };
+      console.log(area);
+      return { ...area };
     });
-    fetch(`http://localhost:3005/areas/${id}`, {
-      method: "PUT",
-      body: JSON.stringify(selectedAreas),
-    });
-
+    axios.put(`http://localhost:3005/areas/${employee.id}`, selectedAreas);
     window.location.reload();
   };
-  
-// !!!!!!!!!
+
   const [toggle, setToggle] = useState(false);
 
   const handleToggle = () => {
@@ -54,8 +47,10 @@ export const AreasButton = () => {
   return (
     <>
       <IconButton onClick={handleToggle}>
-        <AccountTreeOutlinedIcon style={{ fontSize: "1.7rem", color: "black" }}/>
-      </IconButton >
+        <AccountTreeOutlinedIcon
+          style={{ fontSize: "1.7rem", color: "black" }}
+        />
+      </IconButton>
       <Modal open={toggle} onClose={handleToggle}>
         <div className="AreasButton">
           <h2>Areas Asociadas</h2>
@@ -79,7 +74,6 @@ export const AreasButton = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          <div></div>
           <div>
             <Button onClick={handleToggle}>Cancelar</Button>
             <Button variant="contained" type="button" onClick={editArea}>

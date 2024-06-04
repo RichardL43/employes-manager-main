@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect} from "react";
+import React, { useContext } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -9,24 +9,18 @@ import Paper from "@mui/material/Paper";
 import { ViewButton } from "../button/ViewButton";
 import { EditButton } from "../button/EditButton";
 import { NewForm } from "../Form/NewForm";
-import { useFetchGet } from "../hooks/useFetchGet";
 import { DeleteButton } from "../button/DeleteButton";
 import { EmployeeContext } from "../context/EmployeeContext";
- 
-export const EmployeeIdContext = createContext();
-export const MainTable = () => {
-  // const { employees } = useFetchGet();
-  const { employees,fetchDataId } = useContext(EmployeeContext);
 
-  
+export const MainTable = () => {
+  const { employees } = useContext(EmployeeContext);
+
   return (
     <div className="tableContainer">
       <h1>Empleados</h1>
       <NewForm />
       <TableContainer component={Paper} sx={{ borderRadius: "10px" }}>
-        <Table
-          sx={{ minWidth: 650, borderRadius: "10px" }}
-          >
+        <Table sx={{ minWidth: 650, borderRadius: "10px" }}>
           <TableHead>
             <TableRow>
               <TableCell
@@ -50,69 +44,64 @@ export const MainTable = () => {
               <TableCell
                 align="center"
                 sx={{ fontSize: "23px", border: "1px solid #708090" }}
-                >
+              >
                 Ver
               </TableCell>
               <TableCell
                 align="center"
                 sx={{ fontSize: "23px", border: "1px solid #708090" }}
-                >
+              >
                 Editar
               </TableCell>
               <TableCell
                 align="center"
                 sx={{ fontSize: "23px", border: "1px solid #708090" }}
-                >
+              >
                 Eliminar
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {employees.map((employee) => (
-              <EmployeeIdContext.Provider key={employee.id} value={{
-                 employee: employee, 
-                 id: employee.id,
-                 empSystemAccess: employee.empSystemAccess }}>
-                <TableRow >
-                  <TableCell
-                    component="th"
-                    scope="row"
-                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                    >
-                    {employee.empName}
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                    >
-                    {employee.empFirstName}
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                    >
-                    {employee.empLastName}
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                    >
-                    <ViewButton employee={employee}/>
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                  >
-                    <EditButton/>
-                  </TableCell>
-                  <TableCell
-                    align="center"
-                    sx={{ fontSize: "20px", border: "1px solid #708090" }}
-                    >
-                    <DeleteButton/>
-                  </TableCell>
-                </TableRow>
-              </EmployeeIdContext.Provider>
+            {employees.map((employee, index) => (
+              <TableRow key={index}>
+                <TableCell
+                  component="th"
+                  scope="row"
+                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                >
+                  {employee.empName}
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                >
+                  {employee.empFirstName}
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                >
+                  {employee.empLastName}
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                >
+                  <ViewButton employee={employee} />
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                >
+                  <EditButton employee={employee} />
+                </TableCell>
+                <TableCell
+                  align="center"
+                  sx={{ fontSize: "20px", border: "1px solid #708090" }}
+                >
+                  <DeleteButton employee={employee} />
+                </TableCell>
+              </TableRow>
             ))}
           </TableBody>
         </Table>

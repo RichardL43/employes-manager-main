@@ -1,13 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { EmployeeIdContext } from "../table/MainTable";
 
-export const useFetchPut = () => {
-  const employeeContext = useContext(EmployeeIdContext);
-  const { employee, id, empSystemAccess } = employeeContext || {};
-
+export const useFetchPut = (employee) => {
   // * Employee
   const [formData, setFormData] = useState(employee);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -16,10 +13,10 @@ export const useFetchPut = () => {
     }));
   };
 
-  const submitEmployee = (e) => {
-    e.preventDefault();
-    axios.put(`http://localhost:3005/employees/${id}`, formData)
-      .then((resp) => resp.data)
+  const submitEmployee = () => {
+    axios
+      .put(`http://localhost:3005/employees/${employee.id}`, formData)
+      .then((resp) => resp.data);
   };
 
   // * User
@@ -37,29 +34,48 @@ export const useFetchPut = () => {
     }));
   };
 
-  const submitUser = (e) => {
-    e.preventDefault();
-    axios.put(`http://localhost:3005/users/${id}`, formUser)
-      .then((resp) => resp.data)
+  const submitUser = () => {
+    axios
+      .put(`http://localhost:3005/users/${employee.id}`, formUser)
+      .then((resp) => resp.data);
   };
 
   //* getUser
-  const getUser = () => {
-    axios.get(`http://localhost:3005/users/${id}`)
-      .then((resp) => setFormUser(resp.data))
+  const getUser = async () => {
+      const response = await fetch(`http://localhost:3005/users/${employee.id}`);
+      const data = await response.json();
+      setFormUser(data);
+
   };
+  
 
   useEffect(() => {
-    getUser();
+    // console.log(employee)
+    if( employee.id !== undefined) {
+      getUser();
+    }
   }, []);
 
   // *Checked
-  const [checked, setChecked] = useState(empSystemAccess);
+  const [checked, setChecked] = useState(employee.empSystemAccess || false);
 
   const handleCheck = () => {
-    setChecked((prevChecked) => !prevChecked);
-    handleChange({ target: { name: "empSystemAccess", value: !checked } });
+    const updatedChecked = !checked;
+    setChecked(updatedChecked);
+    handleChange({
+      target: { name: "empSystemAccess", value: updatedChecked },
+    });
   };
 
-  return { handleChange, submitEmployee, formData, onChangeUser, submitUser, formUser, setFormUser, handleCheck, checked };
+  return {
+    handleChange,
+    submitEmployee,
+    formData,
+    onChangeUser,
+    submitUser,
+    formUser,
+    setFormUser,
+    checked,
+    handleCheck,
+  };
 };

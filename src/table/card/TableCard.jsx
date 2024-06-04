@@ -9,10 +9,14 @@ import { UserTable } from "./UserTable";
 import { useContext } from "react";
 import { EmployeeIdContext } from "../MainTable";
 import { EmployeeContext } from "../../context/EmployeeContext";
+import { useEffect } from "react";
 
 export const TableCard = ({employee}) => {
   const {fetchGetId} = useContext(EmployeeContext);
-  fetchGetId(employee.id)
+  useEffect(() => {
+    fetchGetId(employee.id)
+  }, []);
+  // console.log(employee)
   return (
     
     <div className="tableCard">
@@ -39,7 +43,7 @@ export const TableCard = ({employee}) => {
           </TableBody>
         </Table>
       </TableContainer>
-      {employee.empSystemAccess && <UserTable/>}
+      {employee.empSystemAccess && <UserTable employee={employee}/>}
     </div>
       
   );

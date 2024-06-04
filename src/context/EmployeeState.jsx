@@ -1,25 +1,19 @@
 import { useEffect, useReducer, useState } from "react";
-import reducer from "../context/reducer";
 import axios from "axios";
 import { EmployeeContext } from "./EmployeeContext";
-import {POST_EMPLOYEE,POST_USER,SET_AREA,SET_EMPLOYEES,SET_USER,} from "./types";
+import { POST_AREA, POST_EMPLOYEE, POST_USER, PUT_EMPLOYEE, PUT_USER, SET_AREA, SET_EMPLOYEES, SET_USER } from "./types";
 import { useRandomId } from "../hooks/useRandomId";
-import initialState from "./initialState";
+import { reductor } from "./reducer";
+import { initialState } from "./initialState";
 
 export const EmployeeProvider = ({ children }) => {
   const { randomId } = useRandomId();
-
-  const [state, dispatch] = useReducer(reducer, initialState(randomId));
-  
+  const [state, dispatch] = useReducer(reductor, initialState(randomId));
   const [id, setId] = useState(null);
-
-  // !!!!! GET !!!!!!!
 
   const fetchGet = async () => {
     try {
-      const employeesResponse = await axios.get(
-        "http://localhost:3005/employees"
-      );
+      const employeesResponse = await axios.get("http://localhost:3005/employees");
       const employeesData = employeesResponse.data;
       dispatch({ type: SET_EMPLOYEES, payload: employeesData });
     } catch (error) {
@@ -29,79 +23,78 @@ export const EmployeeProvider = ({ children }) => {
 
   const fetchGetId = async (id) => {
     try {
-      const usersResponse = await axios.get(
-        `http://localhost:3005/users/${id}`
-      );
+      const usersResponse = await axios.get(`http://localhost:3005/users/${id}`);
       const usersData = usersResponse.data;
       dispatch({ type: SET_USER, payload: usersData });
-
-      const areasResponse = await axios.get(
-        `http://localhost:3005/areas/${id}`
-      );
-      const areaData = areasResponse.data;
-      dispatch({ type: SET_AREA, payload: areaData });
     } catch (error) {
-      console.error("Error fetching user or area:", error);
+      console.error(`Error fetching user or area with id ${id}:`, error);
     }
   };
 
-  // !!!!!! POST !!!!!!
-
-  const onChangeEmployee = (e) => {
-    const { name, value } = e.target;
-    dispatch({
-      type: POST_EMPLOYEE,
-      payload: { ...state.employee, [name]: value },
-    });
+  const employeeSubmitPost = async (employee) => {
+    try {
+      const { data } = await axios.post("http://localhost:3005/employees", employee);
+      dispatch({ type: POST_EMPLOYEE, payload: data });
+    } catch (error) {
+      console.error("Error posting employee:", error);
+    }
   };
 
-  const onChangeUser = (e) => {
-    const { name, value } = e.target;
-    dispatch({ type: POST_USER, payload: { ...state.user, [name]: value } });
+  const userSubmitPost = async (user) => {
+    try {
+      const { data } = await axios.post("http://localhost:3005/users", user);
+      dispatch({ type: POST_USER, payload: data });
+    } catch (error) {
+      console.error("Error posting user:", error);
+    }
   };
 
-  const employeeSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:3005/employees", state.employee)
-      .then((resp) => resp.data);
+  const areaSubmitPost = async (area) => {
+    try {
+      const { data } = await axios.post("http://localhost:3005/areas", area);
+      dispatch({ type: POST_AREA, payload: data });
+    } catch (error) {
+      console.error("Error posting area:", error);
+    }
   };
 
-  const userSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:3005/users", state.user)
-      .then((resp) => resp.data);
+  const submitEmployee = async (id, formData) => {
+    try {
+      const { data } = await axios.put(`http://localhost:3005/employees/${id}`, formData);
+      dispatch({ type: PUT_EMPLOYEE, payload: data });
+    } catch (error) {
+      console.error(`Error updating employee with id ${id}:`, error);
+    }
   };
 
-  const areaSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:3005/areas", state.area)
-      .then((resp) => resp.data);
+  const submitUser = async (id, formUser) => {
+    try {
+      const { data } = await axios.put(`http://localhost:3005/users/${id}`, formUser);
+      dispatch({ type: PUT_USER, payload: data });
+    } catch (error) {
+      console.error(`Error updating user with id ${id}:`, error);
+    }
   };
-
-  // !!!!!! PUT !!!!!!
 
   useEffect(() => {
     fetchGet();
     if (id !== null) {
-      fetchGetId();
+      fetchGetId(id);
     }
   }, [id]);
 
+  const value = {
+    ...state,
+    fetchGetId,
+    submitEmployee,
+    submitUser,
+    employeeSubmitPost,
+    userSubmitPost,
+    areaSubmitPost,
+  };
+
   return (
-    <EmployeeContext.Provider
-      value={{
-        ...state,
-        fetchGetId,
-        onChangeEmployee,
-        onChangeUser,
-        employeeSubmit,
-        userSubmit,
-        areaSubmit,
-      }}
-    >
+    <EmployeeContext.Provider value={value}>
       {children}
     </EmployeeContext.Provider>
   );

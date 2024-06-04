@@ -4,17 +4,18 @@ import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import {Button,Dialog,DialogActions,DialogTitle} from "@mui/material";
 import { useFetchDelete } from "../hooks/useFetchDelete";
 
-export const DeleteButton = () => {
+export const DeleteButton = ({employee}) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(!open);
   };
 
-const {deleteEmployee, deleteUser, deleteArea} = useFetchDelete();
+const {deleteEmployee, deleteUser, deleteArea} = useFetchDelete(employee.id);
+
 const globalDelete = (e) => {
   deleteEmployee(e);
   deleteUser(e);
-  deleteArea(e);
+  // deleteArea(e);
   window.location.reload();
 }
 
