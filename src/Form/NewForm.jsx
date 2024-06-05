@@ -6,7 +6,7 @@ import { EmployeeContext } from "../context/EmployeeContext";
 export const NewForm = () => {
   const { onChangeEmployee, onChangeUser, employee, user } = useFetchPost();
   const { employeeSubmitPost, userSubmitPost } = useContext(EmployeeContext);
-
+  const cambio  = "cambio";
   const globalSubmit = async (e) => {
     e.preventDefault();
     await employeeSubmitPost(employee);
@@ -62,6 +62,7 @@ export const NewForm = () => {
                 onChange={onChangeEmployee}
                 placeholder="Apellido Paterno"
               />
+           
               <input
                 type="text"
                 id="empLastName"
